@@ -51,25 +51,26 @@
   <article class="doc glass">
     <p class="tiny">Privacy policy</p>
     <h1>Privacy policy</h1>
-    <p>Last updated: 7 October 2026. This policy covers the Android app <b>Xiaomi Cockpit</b> and this website. Xiaomi Cockpit is a free, independent community project. The short version: the app has no account, no advertising and no analytics, and the people who make it run no server that collects your data. Almost everything stays on your phone. The few things that leave it go to the services you choose to use, and this page lists each one.</p>
+    <p>Last updated: 20 October 2026. This policy covers the Android app <b>Xiaomi Cockpit</b> and this website. Xiaomi Cockpit is a free, independent community project. The short version: the app has no account, no advertising and no analytics, and the people who make it run no server that collects your data. Almost everything stays on your phone. The few things that leave it go to the services you choose to use, and this page lists each one.</p>
 
     <h2 id="stays">What stays on your phone</h2>
     <ul>
       <li>Your settings, your dock apps, your Home and Work places, your city, your background photo and your language.</li>
       <li>Your Google key and your Yandex key. They are kept on the phone and are only sent to Google or Yandex when the app asks those services for something.</li>
       <li>The music that is playing (title, artist, cover) and the text of the notifications your phone shows. The app reads them from the system to show them on the dashboard (the music card, and the notification card if you leave it on). They are not sent anywhere.</li>
-      <li>The next events of your calendar, read from the phone's calendar to show on the clock card. They are not sent anywhere.</li>
+      <li>The next events of your calendar, read from the phone's calendar to show on the clock card. They are not sent anywhere. Tapping the events only asks Android to sync your calendars, as it does with your calendar accounts anyway; the app then reads the events on the phone again.</li>
+      <li>Your drives for route learning (a point about every 50 metres, the last 200 drives), kept in a file inside the app on your phone. They are never uploaded. They are deleted when you turn off <b>Route learning</b> (Settings &gt; Map) or uninstall the app.</li>
       <li>Your consent to Google's costs and the consent log (date, text version, app version and a short fingerprint of your key). It never leaves the phone.</li>
     </ul>
 
     <h2 id="sent">What is sent, and to whom</h2>
-    <p>The app asks for these permissions: location, notification access, notifications, calendar and display over other apps. Location is used on the phone for the map and the speed. Only the services below receive anything, and only when the matching feature is used.</p>
+    <p>The app asks for these permissions: location, notification access, notifications, calendar and display over other apps. Location is used on the phone for the map, the speed and route learning, and for the weather when you have not chosen a city. Only the services below receive anything, and only when the matching feature is used.</p>
     <div class="tablewrap"><table>
       <tr><th>Service</th><th>What it receives</th><th>Why</th></tr>
-      <tr><td><b>Google Maps Platform</b> (Map SDK, Navigation SDK, Routes API, Places API, Roads API, Map Tiles API, Weather API)</td><td>Your position and heading, the places you search for and choose, the routes you ask for, and the key of your own Google account.</td><td>The live map, search, route options, turn-by-turn guidance, snapping to the road, chargers and the weather. Google may charge your own Google account above its free monthly allowance, which you accept on the consent screen.</td></tr>
+      <tr><td><b>Google Maps Platform</b> (Map SDK, Navigation SDK, Routes API, Places API, Roads API, Map Tiles API, Weather API)</td><td>Your position and heading, the places you search for and choose, the routes you ask for, the traffic refreshes of your route, and the key of your own Google account.</td><td>The live map, search, route options, turn-by-turn guidance, live traffic, snapping to the road, chargers and the weather (for your city, or your approximate position when no city is chosen). Google may charge your own Google account above its free monthly allowance, which you accept on the consent screen.</td></tr>
       <tr><td><b>Yandex MapKit</b> (only if you choose the Yandex map service)</td><td>Your position, searches and routes, and your Yandex key.</td><td>The Yandex map, search and route preview.</td></tr>
-      <tr><td><b>Open-Meteo</b></td><td>The coordinates of your city (or your position).</td><td>The weather, when Google Weather is not used.</td></tr>
-      <tr><td><b>OpenStreetMap services</b> (Nominatim, Photon, Overpass, map tiles)</td><td>A search text, a pin or a position, and your IP address.</td><td>Place search and the name of a pin without a Google key, chargers, the built-in map.</td></tr>
+      <tr><td><b>Open-Meteo</b></td><td>The coordinates of your city or, when no city is chosen, your approximate position.</td><td>The weather, when Google is not used for it.</td></tr>
+      <tr><td><b>OpenStreetMap services</b> (Nominatim, Photon, Overpass, map tiles)</td><td>A search text, a pin or a position, and your IP address. Nominatim also receives your approximate position when the weather follows your location.</td><td>Place search and the name of a pin without a Google key, the place name for the weather, chargers, the built-in map.</td></tr>
       <tr><td><b>GitHub</b></td><td>Your IP address and the app version, when the app checks for or downloads an update. The text and details of a report, when you send one yourself.</td><td>Updates, and the public issue list for problems and ideas.</td></tr>
     </table></div>
     <p>Each of these services handles the data under its own terms and privacy policy. Google's are at <a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a> and <a href="https://cloud.google.com/maps-platform/terms" rel="noopener">cloud.google.com/maps-platform/terms</a>. Yandex's are at <a href="https://yandex.com/legal/privacy/" rel="noopener">yandex.com/legal/privacy</a>. Open-Meteo's are at <a href="https://open-meteo.com/en/terms" rel="noopener">open-meteo.com/en/terms</a>. The OpenStreetMap Foundation's are at <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" rel="noopener">wiki.osmfoundation.org/wiki/Privacy_Policy</a>. GitHub's are at <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">docs.github.com</a>.</p>
@@ -91,6 +92,8 @@
     <ul>
       <li>Withdraw your consent in Settings &gt; Service &gt; API status. Your Google key is removed and the Google services stop.</li>
       <li>Remove your Google key or your Yandex key in Settings &gt; Service &gt; API status.</li>
+      <li>Turn off <b>Route learning</b> in Settings &gt; Map. The learned drives are deleted.</li>
+      <li>Choose a city in Settings &gt; Weather, so your position is not used for the weather.</li>
       <li>Refuse any permission in Android's settings. The matching feature then stops working.</li>
       <li>Delete everything the app stored: clear the app's data or uninstall it in Android's settings.</li>
     </ul>
