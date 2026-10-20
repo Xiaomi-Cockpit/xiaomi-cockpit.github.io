@@ -77,6 +77,7 @@
       <a href="#troubleshooting">Troubleshooting</a>
       <a href="#report">Report a problem</a>
       <a href="#updates">Updating</a>
+      <a href="#backup">Backup and restore</a>
     </div>
   </aside>
 
@@ -101,6 +102,7 @@
       <li>On your phone, download <a href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases/latest/download/Xiaomi-Cockpit.apk">Xiaomi-Cockpit.apk</a>.</li>
       <li>Open the file. When Android asks to allow installing from your browser or file manager, allow it. If Play Protect warns about an unknown app, choose <b>Install anyway</b>.</li>
       <li>Open Xiaomi Cockpit. The first start is a guided setup: your language, the permissions and your map service (Google, Yandex or None; you can change it later in the settings). For Google you also read a short screen about Google's costs, accept it and add your key.</li>
+      <li>Right after the permissions the setup asks <b>Restore a backup?</b> If you saved your settings before (see <a href="#backup">Backup and restore</a>), tap <b>Choose backup file</b>: everything comes back and the setup ends there. Otherwise tap <b>Skip</b> and go on to the map service.</li>
     </ol>
     <div class="tip"><p><b>Tip.</b> Installing a new version on top of the old one keeps all your settings. You never need to uninstall to update, and the app can fetch updates for you (see <a href="#updates">Updating</a>).</p></div>
     <div class="tip"><p><b>If the install fails</b> with a message about conflicting signatures or an existing package, the real Baidu app (the one with the same package name) is on the phone. Uninstall it and install again.</p></div>
@@ -215,7 +217,8 @@
     </ol>
     <p><b>Check</b> tries each Google service with your key. If all work, the button becomes <b>Save</b>. If something fails, the app tells you which one and what to fix (for example "Not turned on: press Enable in Google Cloud"). You can also choose <b>Save anyway</b>. The status row shows <b>Valid</b> (green), <b>Needs fixing</b> (red), <b>Not checked</b> or <b>Not added</b> (orange).</p>
     <p><b>Consent.</b> The first time you use Google, a glass screen explains the free allowances and the charge above them and asks you to accept. The acceptance is written to a consent log on your phone. In <b>API status</b> you can withdraw your consent: after a confirmation that removes the key from the phone and the Google services stop.</p>
-    <div class="tip"><p><b>Tip.</b> If you restrict the key to Android apps in Google Cloud, enter the app's package name and its SHA-1 fingerprint. A key without restrictions is simpler but anyone who gets it can use it, so keep it private.</p></div>
+    <div class="tip"><p><b>Tip.</b> If you restrict the key to Android apps in Google Cloud, enter the app's package name and each SHA-1 fingerprint shown in the setup's Google key guide (there are two, each with a <b>Copy</b> button). A key without restrictions is simpler but anyone who gets it can use it, so keep it private.</p></div>
+    <div class="tip"><p><b>Restricted your key before version 2.3.0?</b> The app now has a new signing key, so it has a second SHA-1. Add the second SHA-1 to your key's Android restriction in Google Cloud. The old one keeps working, so nothing stops in the meantime.</p></div>
 
     <h3 id="yandex-key">Get a Yandex key</h3>
     <p>The <b>Yandex API</b> map service needs <b>your own free Yandex MapKit key</b>.</p>
@@ -277,6 +280,7 @@
     <ul>
       <li><b>All apps:</b> the last button opens a sheet with every app on the phone.</li>
       <li><b>Edit the dock:</b> press and hold the dock. The icons wobble slowly. Drag to reorder, tap the round badge at the top right of an icon to remove it, and tap the <b>+</b> button at the end to add apps (the list has search and app icons). Tap outside the dock, or open <b>All apps</b>, to finish.</li>
+      <li><b>Work profile and dual apps:</b> the list of apps also shows the apps of your work profile and Xiaomi's dual apps, with their badge or marked <i>(second copy)</i>. They open on the car screen like any other app.</li>
     </ul>
 
     <!-- ===== floating ===== -->
@@ -302,6 +306,7 @@
       <tr><td><b>Music</b></td><td>The <b>Default music app</b>. The dock apps are set on the dashboard itself: press and hold the dock.</td></tr>
       <tr><td><b>Look and behaviour</b></td><td><b>Language</b>, <b>Theme</b>, <b>Background</b>, <b>Animated background</b>, <b>Accent colour</b>, <b>Play music when connected to car</b>, <b>Show phone notifications on the dashboard</b>, <b>Floating home button</b> and <b>Power saver</b>. See <a href="#look">Looks and themes</a>.</td></tr>
       <tr><td><b>Updates</b></td><td>The installed version, <b>Check for updates</b>, and <b>Check for updates automatically</b>. See <a href="#updates">Updating</a>.</td></tr>
+      <tr><td><b>Backup</b></td><td><b>Back up settings</b> to one file and <b>Restore settings</b> from it. See <a href="#backup">Backup and restore</a>.</td></tr>
       <tr><td><b>Support</b></td><td><b>Report a problem</b> and <b>Request a feature</b>: send a description, screenshots and the app log. See <a href="#report">Report a problem</a>.</td></tr>
       <tr><td><b>Diagnostics</b></td><td>Technical details such as the build number, the package name, the Android version, the number of learned drives and the state of the weather and of the chosen map service only (with Yandex just the Yandex map). Useful when asking for help.</td></tr>
     </table></div>
@@ -360,7 +365,26 @@
     <h2 id="updates">Updating</h2>
     <p>The app can update itself. Open <b>Settings &gt; Updates</b> and tap <b>Check for updates</b>: it looks at the project's published releases, shows what is new and, if you agree, downloads the new version and asks Android to install it over the old one (the first time Android may ask you to allow installing from this app). <b>Check for updates automatically</b> (on by default) does the same check by itself on the phone, at most every 12 hours, and asks before it installs anything. Your settings, key, Home and Work are kept.</p>
     <p>You can also download the newest <a href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases/latest/download/Xiaomi-Cockpit.apk">Xiaomi-Cockpit.apk</a> and install it over the old one. Your settings, key, Home and Work are kept. The <a href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases">releases page</a> lists what changed in each version.</p>
+    <p>Version 2.3.0 is signed with a new app signing key. Updates still install over the old app as before, with no need to uninstall.</p>
     <p><a class="btn primary" href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases/latest/download/Xiaomi-Cockpit.apk"><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-download"/></svg>Download the latest version</a></p>
+
+    <!-- ===== backup ===== -->
+    <h2 id="backup">Backup and restore</h2>
+    <p>Save all your settings in one file and bring them back later, for example on a new phone or after you install the app again. Open <b>Settings &gt; Backup</b>.</p>
+    <h3 id="backup-save">Back up settings</h3>
+    <ol>
+      <li>Tap <b>Back up settings</b>.</li>
+      <li>Choose <b>Without my API keys</b> or <b>With my API keys</b>. Without the keys you add them again after restoring.</li>
+      <li>Android's file picker opens. Save the file anywhere you like, for example in Google Drive or in your Downloads folder.</li>
+    </ol>
+    <p>The file holds all your settings, the dock, Home and Work, your recent places, your background photo and the learned routes. Permissions are not in it: Android asks for them again after a restore.</p>
+    <div class="tip"><p><b>Keep the file private.</b> With <b>With my API keys</b> the file contains your Google and Yandex keys. Do not share it.</p></div>
+    <h3 id="backup-restore">Restore settings</h3>
+    <ol>
+      <li>Tap <b>Restore settings</b> and pick the backup file.</li>
+      <li>Confirm. The settings in the file replace the current ones, and the app restarts by itself.</li>
+    </ol>
+    <p>On a new install you do not even need to open the settings: right after the permissions the setup asks <b>Restore a backup?</b> Tap <b>Choose backup file</b> to restore everything and finish the setup at once, or <b>Skip</b> to continue with the map service.</p>
   </article>
 </div>
 </main>
