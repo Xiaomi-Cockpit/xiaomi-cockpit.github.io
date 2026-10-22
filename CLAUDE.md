@@ -1,6 +1,6 @@
 # Xiaomi Cockpit website: project notes for Claude
 
-Read this first. Public website of the app "Xiaomi Cockpit" (https://xiaomi-cockpit.github.io), repo `xiaomi-cockpit/xiaomi-cockpit.github.io`, GitHub Pages from `main` (root). The app itself lives in the PRIVATE repo `pagnchanak/xiaomi-cockpit` (see its CLAUDE.md for what the app does); this repo has no app code.
+Read this first. Public website of the app "Xiaomi Cockpit" (https://xiaomi-cockpit.github.io), repo `xiaomi-cockpit/xiaomi-cockpit.github.io`, GitHub Pages from `main` (root). The app itself lives in the PRIVATE repo `xiaomi-cockpit/xiaomi-cockpit` (moved from `pagnchanak/xiaomi-cockpit`) (see its CLAUDE.md for what the app does); this repo has no app code.
 
 ## Who you work with
 - The user has no coding knowledge: explain in plain language, give exact click steps, do the coding yourself. They use Windows and the GitHub website.
