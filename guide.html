@@ -11,7 +11,7 @@
 <link rel="icon" href="assets/brand/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:image" content="https://xiaomi-cockpit.github.io/assets/brand/icon-512.png">
-<link rel="stylesheet" href="assets/style.css?v=202610081200">
+<link rel="stylesheet" href="assets/style.css?v=202610221500">
 <script>
   (function () {
     try {
@@ -93,7 +93,7 @@
     <ul>
       <li>A Xiaomi phone with HyperOS and Android 12 or newer, in the Chinese region.</li>
       <li>A Xiaomi car that you can connect your phone to with Xiaomi interconnectivity.</li>
-      <li>The real Baidu app must not be installed on the phone (see Troubleshooting).</li>
+      <li>Baidu Maps and Mi Dashboard must not be installed on the phone (see Troubleshooting).</li>
     </ul>
     <p><b>Without interconnectivity</b> the app can only be opened on your phone. It cannot be shown on the car screen. Everything in this guide that talks about the car needs the connection to work first.</p>
 
@@ -101,11 +101,11 @@
     <ol>
       <li>On your phone, download <a href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases/latest/download/Xiaomi-Cockpit.apk">Xiaomi-Cockpit.apk</a>.</li>
       <li>Open the file. When Android asks to allow installing from your browser or file manager, allow it. If Play Protect warns about an unknown app, choose <b>Install anyway</b>.</li>
-      <li>Open Xiaomi Cockpit. The first start is a guided setup: your language, the permissions and your map service (Google, Yandex or None; you can change it later in the settings). For Google you also read a short screen about Google's costs, accept it and add your key.</li>
+      <li>Open Xiaomi Cockpit. The first start is a guided setup: your language, your look (theme, accent colour, animated background and weather animation), the permissions and your map service (Google, Yandex or None; you can change it later in the settings). For Google you also read a short screen about Google's costs, accept it and add your key.</li>
       <li>Right after the permissions the setup asks <b>Restore a backup?</b> If you saved your settings before (see <a href="#backup">Backup and restore</a>), tap <b>Choose backup file</b>: everything comes back and the setup ends there. Otherwise tap <b>Skip</b> and go on to the map service.</li>
     </ol>
-    <div class="tip"><p><b>Tip.</b> Installing a new version on top of the old one keeps all your settings. You never need to uninstall to update, and the app can fetch updates for you (see <a href="#updates">Updating</a>).</p></div>
-    <div class="tip"><p><b>If the install fails</b> with a message about conflicting signatures or an existing package, the real Baidu app (the one with the same package name) is on the phone. Uninstall it and install again.</p></div>
+    <div class="tip"><p><b>Tip.</b> Installing a new version on top of the old one keeps all your settings, and the app can fetch updates for you (see <a href="#updates">Updating</a>). The one exception is the move from version 2 to 3.0: see <a href="#move3">Moving to version 3.0</a>.</p></div>
+    <div class="tip"><p><b>If the install fails</b> with a message about conflicting signatures or an existing package, Baidu Maps or Mi Dashboard (they use the same package name) is on the phone. Uninstall it and install again.</p></div>
 
     <h3 id="permissions">Allow what it needs</h3>
     <p>The setup guide (and <b>Settings &gt; Permissions</b>) lists what the app asks for. Each row shows <b>Allowed</b> or <b>Tap to allow</b>.</p>
@@ -131,7 +131,7 @@
     <ul>
       <li><b>Phone and tall windows:</b> clock, live map, music and the app row stacked from top to bottom.</li>
       <li><b>Compact car screen:</b> apps in a column on the left, music and clock side by side on top, the map as one wide box underneath.</li>
-      <li><b>Full car screen:</b> apps on the left, a big map in the middle, the clock above a full music player on the right.</li>
+      <li><b>Full car screen:</b> apps on the left, a big map in the middle, the clock above a full music player on the right. From version 3.0 the car keeps this layout while you drive.</li>
     </ul>
     <p>The layout is chosen automatically from the window's shape. Nothing scrolls, and sizes are scaled so that icons and text look the same size on the phone and on each car layout.</p>
 
@@ -183,7 +183,7 @@
       <li><b>Like button:</b> if the playing app offers a like (for example YouTube Music), a heart takes the place of the previous button. Tap to like or unlike.</li>
       <li><b>Progress bar:</b> the larger layouts show the elapsed time, the length and a bar you can drag to jump in the song.</li>
       <li><b>Play when connected:</b> optionally start playing by itself when the car connects (<b>Settings &gt; Look and behaviour</b>).</li>
-      <li><b>Accent waves:</b> soft waves in the accent colour flow behind the buttons while a song plays and fan out softly at both ends. The round buttons are frosted glass.</li>
+      <li><b>Music ribbon:</b> behind the buttons a twisting ribbon of thin lines, in the two main colours of the album cover, sways and turns with the music, with small dots rising from it. Faster songs make it move faster, and it calms down when the music pauses. The round buttons are frosted glass.</li>
       <li><b>Cover:</b> with nothing playing the cover is a frosted-glass tile with a disc icon, and a tap anywhere on the widget opens your default music app. Press and hold the widget to choose that app.</li>
       <li>With the <i>Album art</i> accent, the colours of the app follow the cover of the current song.</li>
     </ul>
@@ -191,11 +191,11 @@
 
     <!-- ===== map ===== -->
     <h2 id="map">Map and navigation</h2>
-    <p>The map is Google's own live map, with 3D buildings and traffic, following your car (or Yandex's map with traffic, if you choose the Yandex service). At night it switches to Google's dark map style. As you speed up it zooms out smoothly; while you drive it tilts into a driving view. Tap the expand button to make the map fill the screen.</p>
+    <p>The map is Google's own live map, with 3D buildings and traffic, following your car (or Yandex's map with traffic, if you choose the Yandex service). At night it switches to Google's dark map style. As you speed up it zooms out smoothly; while you drive it tilts into a driving view. Your car is a blue arrow. Tap the expand button to make the map fill the screen. On the phone and the compact car screen, the search and charger buttons first make the map bigger, and it goes back to its size when a route starts.</p>
     <ul>
       <li><b>Driving view:</b> always on. The map tilts into 3D by itself once the car moves.</li>
       <li><b>Reset button:</b> after you drag, pinch or turn the map, a round arrow brings it back to your position. It shows only after you moved the map.</li>
-      <li><b>Round buttons</b> on the left of the map: <b>Charger</b> (bolt), <b>Search</b>, <b>Voice</b> (cycles spoken guidance between silent, alerts only and guidance, Google service only), <b>View</b> (3D navigation view or north up) and <b>Settings</b> (map settings such as live traffic and satellite view). The small map card shows only Charger and Search until you expand it. While a destination is chosen or a route runs, an ✕ appears where the reset button sits.</li>
+      <li><b>Round buttons</b> on the left of the map: <b>Charger</b> (bolt), <b>Search</b>, <b>Voice</b> (cycles spoken guidance between silent, alerts only and guidance, Google service only), <b>View</b> (3D navigation view or north up) and <b>Settings</b> (map settings such as live traffic and satellite view). The small map card shows only Charger and Search until you expand it. While a destination is chosen, an ✕ appears where the reset button sits; while a route runs, the trip buttons sit on the right (see <a href="#banner">Google's navigation screen</a>). While you drive, the buttons fade away 5 seconds after you last touched the map and come back with a touch; the expand button always stays.</li>
       <li><b>Night map</b> (in the map's <b>Settings</b> button): <b>Auto</b> shows the night style while the sun is down where the car is, <b>Theme</b> follows the dashboard's theme, <b>On</b> always shows the night style of the map and <b>Off</b> the day style. The buttons and cards over the map change their colours to stay readable.</li>
       <li><b>Bolt button</b> (the first round button): finds nearby EV chargers, see <a href="#chargers">Nearby chargers</a>.</li>
     </ul>
@@ -217,8 +217,9 @@
     </ol>
     <p><b>Check</b> tries each Google service with your key. If all work, the button becomes <b>Save</b>. If something fails, the app tells you which one and what to fix (for example "Not turned on: press Enable in Google Cloud"). You can also choose <b>Save anyway</b>. The status row shows <b>Valid</b> (green), <b>Needs fixing</b> (red), <b>Not checked</b> or <b>Not added</b> (orange).</p>
     <p><b>Consent.</b> The first time you use Google, a glass screen explains the free allowances and the charge above them and asks you to accept. The acceptance is written to a consent log on your phone. In <b>API status</b> you can withdraw your consent: after a confirmation that removes the key from the phone and the Google services stop.</p>
-    <div class="tip"><p><b>Tip.</b> If you restrict the key to Android apps in Google Cloud, enter the app's package name and each SHA-1 fingerprint shown in the setup's Google key guide (there are two, each with a <b>Copy</b> button). A key without restrictions is simpler but anyone who gets it can use it, so keep it private.</p></div>
+    <div class="tip"><p><b>Tip.</b> If you restrict the key to Android apps in Google Cloud, enter the app's package name (com.baidu.BaiduMap from version 3.0) and each SHA-1 fingerprint shown in the setup's Google key guide (there are two, each with a <b>Copy</b> button). A key without restrictions is simpler but anyone who gets it can use it, so keep it private.</p></div>
     <div class="tip"><p><b>Restricted your key before version 2.3.0?</b> The app now has a new signing key, so it has a second SHA-1. Add the second SHA-1 to your key's Android restriction in Google Cloud. The old one keeps working, so nothing stops in the meantime.</p></div>
+    <div class="tip"><p><b>Restricted your key before version 3.0?</b> Version 3.0 has a new package name. Add <b>com.baidu.BaiduMap</b> with both SHA-1 fingerprints to your key's Android restriction in Google Cloud, or routes, search and guidance stop working.</p></div>
 
     <h3 id="yandex-key">Get a Yandex key</h3>
     <p>The <b>Yandex API</b> map service needs <b>your own free Yandex MapKit key</b>.</p>
@@ -234,8 +235,8 @@
       <li>Tap the magnifier (<b>Search</b>). A card opens at the top with <b>Home</b>, <b>Work</b> and a search field. Tap the field to type; a tap always brings the keyboard back.</li>
       <li>Type a place or an address. Results appear while you type, nearest to your car first. Tap one.</li>
       <li>The destination card shows the time and distance with <b>Start</b>, the alternative-routes button and <b>+</b> to add a stop. The route is drawn on the map, coloured by traffic: blue is normal, orange is slow and red is a jam.</li>
-      <li>To stop, tap the ✕ button on the map (it takes the place of the reset button while a destination is chosen or a route runs).</li>
-      <li><b>Alternative routes:</b> the other routes are drawn on the map in grey. Tap one to choose it; a small bubble says how many minutes faster or slower it is.</li>
+      <li>To stop, tap the ✕ button on the map: while a destination is chosen it takes the place of the reset button, and while a route runs it is one of the round buttons on the right, above the expand button.</li>
+      <li><b>Alternative routes:</b> the other routes are drawn on the map in grey. Tap one to choose it; a small bubble says how many minutes faster or slower it is. The route you choose is the one Google guides you along, even when it is a little slower. If you turn onto another road, a new route is found at once.</li>
       <li><b>Stops:</b> tap <b>+</b> to add up to four stops. Tap the trip card to edit the trip: drag the stops into order or remove them. Each stop is drawn on the map as a numbered red disc.</li>
     </ol>
     <p>With the <b>Yandex API</b> service the route is drawn with Yandex's traffic colours and travel time (a bubble shows the minutes), but the app does not guide you turn by turn.</p>
@@ -252,8 +253,16 @@
       <li><b>Settings &gt; Diagnostics</b> shows how many drives were learned (<b>Learned drives</b>).</li>
     </ul>
 
-    <h3 id="banner">The turn banner</h3>
-    <p>While you drive a route, a frosted glass banner at the top of the map shows Google's own guidance: the turn arrow, the distance to the next turn in large figures, the instruction with the street name and, when another turn follows closely, a small <b>Then</b> line with its icon. A line shows the arrival time, the time left and the distance left. A frosted card at the bottom shows the minutes left with the ✕ (end route), alternatives and + (add stop) buttons. If you leave the route, the app finds a new one by itself. Turn-by-turn needs the Google service: Yandex and None show no banner.</p>
+    <h3 id="banner">Google's navigation screen</h3>
+    <p>While you drive a route with the Google service, the map becomes Google's own navigation screen: Google's blue arrow shows your car, Google's camera follows you (the <b>View</b> button chooses the 3D view, the top view or north up) and the route line shows the traffic. Google's own cards sit in frosted glass on top of the map:</p>
+    <ul>
+      <li><b>Turn banner</b> (top left): the turn arrow, the distance to the turn and the instruction with the street name. It is only as wide as its text needs; a long name goes onto a second line.</li>
+      <li><b>Then banner:</b> when another turn follows closely, Google's small <b>Then</b> banner with its arrow sits in its own glass just below.</li>
+      <li><b>Arrival card</b> (bottom left): the time left, the distance left and the arrival time.</li>
+      <li><b>Trip buttons</b> (right, above the expand button): ✕ ends the route, the alternatives button shows other routes and + adds a stop. After you moved the map, a re-center button appears above them.</li>
+      <li>On the car screens the cards are sized to match the rest of the dashboard.</li>
+    </ul>
+    <p>If you leave the route, a new one is found at once. Turn-by-turn needs the Google service: Yandex and None show no banner.</p>
 
     <h3 id="chargers">Nearby chargers</h3>
     <p>Tap the bolt button, the first of the round buttons on the live map. Green charger pins appear around you and the nearest charger is chosen at once. A card shows its name, the distance and drive time, every connector type known for the station (like CCS2 · GB/T) and where it is, smallest area first, for example Nirouth · Chbar Ampov · Phnom Penh. A part that is not known is simply left out.</p>
@@ -327,7 +336,7 @@
 
     <!-- ===== troubleshooting ===== -->
     <h2 id="troubleshooting">Troubleshooting</h2>
-    <details class="faq glass"><summary>The app does not appear in the car's app list</summary><div class="a"><p>First check the <a href="#requirements">requirements</a>: a supported Xiaomi phone in the Chinese region and a working Xiaomi interconnectivity connection to the car. Make sure the phone and the car use the same Xiaomi account and that interconnectivity is connected. The car only lists apps it recognises, and Xiaomi Cockpit uses a package name for that reason; if the real Baidu app is installed on the phone, remove it and install Xiaomi Cockpit again.</p></div></details>
+    <details class="faq glass"><summary>The app does not appear in the car's app list</summary><div class="a"><p>First check the <a href="#requirements">requirements</a>: a supported Xiaomi phone in the Chinese region and a working Xiaomi interconnectivity connection to the car. Make sure the phone and the car use the same Xiaomi account and that interconnectivity is connected. The car only lists apps it recognises, and Xiaomi Cockpit uses a package name for that reason; if Baidu Maps or Mi Dashboard is installed on the phone, remove it and install Xiaomi Cockpit again.</p></div></details>
     <details class="faq glass"><summary>The floating button does not bring the dashboard back</summary><div class="a"><p>Tap once and wait two seconds (taps while it works are ignored). Check that <b>Display over other apps</b> is allowed, <b>Autostart</b> is on, and <b>Battery saver</b> is set to <b>No restrictions</b>. As a fallback use the system back swipe.</p></div></details>
     <details class="faq glass"><summary>A permission switch is greyed out</summary><div class="a"><p>Open <b>App info</b>, tap the three dots at the top and choose <b>Unlock permissions</b>, then try the switch again.</p></div></details>
     <details class="faq glass"><summary>Music or the track title does not show</summary><div class="a"><p>Check <b>Music and navigation access</b>. Start a song in your music app and give it a few seconds. Some apps do not offer a like button; then the previous button stays.</p></div></details>
@@ -337,7 +346,8 @@
     <details class="faq glass"><summary>"Finding the route…" never finishes</summary><div class="a"><p>Check the internet connection on the phone and the key status in <b>Settings &gt; Service &gt; API status</b>. Press <b>Check</b> again to see which service fails.</p></div></details>
     <details class="faq glass"><summary>The weather is empty</summary><div class="a"><p>Choose your city in <b>Settings &gt; Weather</b>, or leave it empty (or tap <b>Use my location</b>) and allow <b>Location</b> so the weather follows your position. Check the phone has internet. If you chose Google and it does not answer, a note under <b>Weather provider</b> says why (often the Weather API is not turned on for your key); the app then uses Open-Meteo.</p></div></details>
     <details class="faq glass"><summary>Nearby chargers shows nothing, or too few</summary><div class="a"><p>Check the internet connection and that Location is allowed. Without a Google key the list comes from OpenStreetMap, which may know fewer stations in your area. With a key, make sure Places API (New) is turned on (<b>Check</b> in <b>Settings &gt; Service &gt; API status</b> tells you). Use Report in the settings while the card is open if it still shows nothing.</p></div></details>
-    <details class="faq glass"><summary>Play Store offers the Baidu app as an "update"</summary><div class="a"><p>Older versions of Xiaomi Cockpit had a lower internal version number than the real Baidu app, so Google Play offered Baidu as an update. Install version 2.2.0 or newer over the old one and the prompt goes away. Do not accept that "update".</p></div></details>
+    <details class="faq glass"><summary>Play Store offers the Baidu app as an "update"</summary><div class="a"><p>Xiaomi Cockpit uses a Baidu package name, and very old versions had a lower internal version number than the real Baidu app, so Google Play offered Baidu as an update. Current versions have a much higher number, so the prompt goes away. Do not accept that "update".</p></div></details>
+    <details class="faq glass"><summary>Routes and search stopped working after moving to 3.0</summary><div class="a"><p>Your Google key is probably restricted to the old package name. In Google Cloud, open the key and add the package name <b>com.baidu.BaiduMap</b> with both SHA-1 fingerprints (the setup's Google key guide shows them with <b>Copy</b> buttons), then tap <b>Check</b> in <b>Settings &gt; Service &gt; API status</b>.</p></div></details>
     <details class="faq glass"><summary>The update does not install</summary><div class="a"><p>The first time, Android asks you to allow this app to install apps: tap <b>Open settings</b>, switch on <b>Allow from this source</b>, come back and tap <b>Update now</b> again. If the download fails, check the internet connection. You can always download the newest APK from the <a href="#updates">Updating</a> section and install it over the old one.</p></div></details>
     <details class="faq glass"><summary>Something else is wrong, or it still does not work</summary><div class="a"><p>Use <a href="#report">Report a problem</a> in the settings. Add a screenshot and keep the log on, then it is much easier to find the cause.</p></div></details>
     <details class="faq glass"><summary>The layout looks too big or too small on the car</summary><div class="a"><p>The app scales each car layout so it matches the phone. If it still looks off on your car, send a photo of the screen and the car model so it can be tuned.</p></div></details>
@@ -365,7 +375,16 @@
     <h2 id="updates">Updating</h2>
     <p>The app can update itself. Open <b>Settings &gt; Updates</b> and tap <b>Check for updates</b>: it looks at the project's published releases, shows what is new and, if you agree, downloads the new version and asks Android to install it over the old one (the first time Android may ask you to allow installing from this app). <b>Check for updates automatically</b> (on by default) does the same check by itself on the phone, at most every 12 hours, and asks before it installs anything. Your settings, key, Home and Work are kept.</p>
     <p>You can also download the newest <a href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases/latest/download/Xiaomi-Cockpit.apk">Xiaomi-Cockpit.apk</a> and install it over the old one. Your settings, key, Home and Work are kept. The <a href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases">releases page</a> lists what changed in each version.</p>
-    <p>Version 2.3.0 is signed with a new app signing key. Updates still install over the old app as before, with no need to uninstall.</p>
+    <h3 id="move3">Moving to version 3.0</h3>
+    <p>Version 3.0 uses a new package name, the one the car allows to stay full screen while you drive. Because of that it installs as a new app next to version 2 and does not update it; the old app's update check says the update is for a different app. Move once, it takes a few minutes:</p>
+    <ol>
+      <li>In the old app open <b>Settings &gt; Backup &gt; Back up settings</b>, choose <b>With my API keys</b> and save the file, for example in Google Drive or Downloads.</li>
+      <li>Uninstall the old Xiaomi Cockpit.</li>
+      <li>Uninstall <b>Baidu Maps</b> and <b>Mi Dashboard</b> if they are still on the phone. The new app cannot be installed next to them.</li>
+      <li>Install the new <a href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases/latest/download/Xiaomi-Cockpit.apk">Xiaomi-Cockpit.apk</a>.</li>
+      <li>In the setup, on <b>Restore a backup?</b>, tap <b>Choose backup file</b> and pick the file. The app restarts with all your settings, the dock, Home and Work and your keys. Allow the permissions again when the setup asks.</li>
+      <li>If your Google key is restricted to Android apps, add the package name <b>com.baidu.BaiduMap</b> with both SHA-1 fingerprints in Google Cloud.</li>
+    </ol>
     <p><a class="btn primary" href="https://github.com/xiaomi-cockpit/xiaomi-cockpit.github.io/releases/latest/download/Xiaomi-Cockpit.apk"><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-download"/></svg>Download the latest version</a></p>
 
     <!-- ===== backup ===== -->
@@ -374,11 +393,11 @@
     <h3 id="backup-save">Back up settings</h3>
     <ol>
       <li>Tap <b>Back up settings</b>.</li>
-      <li>Choose <b>Without my API keys</b> or <b>With my API keys</b>. Without the keys you add them again after restoring.</li>
       <li>Android's file picker opens. Save the file anywhere you like, for example in Google Drive or in your Downloads folder.</li>
     </ol>
     <p>The file holds all your settings, the dock, Home and Work, your recent places, your background photo and the learned routes. Permissions are not in it: Android asks for them again after a restore.</p>
-    <div class="tip"><p><b>Keep the file private.</b> With <b>With my API keys</b> the file contains your Google and Yandex keys. Do not share it.</p></div>
+    <p>The file is encrypted and always includes your Google and Yandex keys; only Xiaomi Cockpit can open it. Backups made with version 2 restore too.</p>
+    <div class="tip"><p><b>Keep the file private.</b> The file contains your Google and Yandex keys. It is encrypted, but do not share it.</p></div>
     <h3 id="backup-restore">Restore settings</h3>
     <ol>
       <li>Tap <b>Restore settings</b> and pick the backup file.</li>
@@ -396,7 +415,7 @@
   </div>
 </footer>
 
-<script src="assets/i18n.js?v=202610081200" defer></script>
-<script src="assets/site.js?v=202610081200" defer></script>
+<script src="assets/i18n.js?v=202610221500" defer></script>
+<script src="assets/site.js?v=202610221500" defer></script>
 </body>
 </html>
