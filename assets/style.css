@@ -164,15 +164,14 @@ header.top { position: sticky; top: 12px; z-index: 50; padding-top: 12px; }
 .ap svg { width: 62%; height: 62%; }
 .ap.grid, .ap.plus { background: var(--chip); border-radius: 50%; color: var(--text); }
 .ap.grid svg, .ap.plus svg { width: 52%; height: 52%; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.ap.plus { display: none; }
+.ap.plus { margin-top: auto; }
+.mdock .ap:first-child { margin-top: auto; }
 .ap .bd { position: absolute; right: -5px; top: -5px; width: 15px; height: 15px; border-radius: 50%; background: #4a5568; border: 1.5px solid #fff; display: none; }
 .ap .bd::before, .ap .bd::after { content: ""; position: absolute; left: 3.5px; right: 3.5px; top: 5.5px; height: 1.6px; background: #fff; transform: rotate(45deg); }
 .ap .bd::after { transform: rotate(-45deg); }
 .s-edit .ap:not(.grid):not(.plus) { animation: wob .5s ease-in-out infinite alternate; }
 .s-edit .ap:nth-child(2n) { animation-delay: -.25s; }
 .s-edit .ap .bd { display: block; }
-.s-edit .ap.plus { display: grid; }
-.s-edit .ap.grid { display: none; }
 @keyframes wob { from { transform: rotate(-2.2deg); } to { transform: rotate(2.2deg); } }
 .mmap { position: relative; min-height: 0; border-radius: 18px; overflow: hidden; background: var(--map-bg); border: 1px solid var(--rim); transition: background-color .4s; }
 .mmap svg.streets { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -229,7 +228,11 @@ header.top { position: sticky; top: 12px; z-index: 50; padding-top: 12px; }
 .s-chargers .xbtn { opacity: 1; }
 .s-chargers .mbanner, .s-chargers .mthen, .s-chargers .trip { opacity: 0; }
 .s-notif .notif { opacity: 1; transform: translate(-50%, 0); }
-.s-notif .mbanner, .s-notif .mthen { transform: translateY(44px); }
+.nscrim { position: absolute; inset: 0; border-radius: 16px; background: #000; opacity: 0; pointer-events: none; transition: opacity .4s; z-index: 20; }
+.s-notif .nscrim { opacity: .45; }
+.screen > .notif { z-index: 21; }
+:root[data-theme="dark"] .screen > .notif { background: rgba(24, 36, 50, .94); }
+:root[data-theme="light"] .screen > .notif { background: rgba(255, 255, 255, .94); }
 .s-edit .mbanner, .s-edit .mthen, .s-edit .trip { opacity: .0; }
 .mclock { padding: 10px 12px; border-radius: 18px; --r: 18px; display: flex; flex-direction: column; justify-content: space-between; }
 .mclock .mc-top { display: flex; justify-content: space-between; align-items: flex-start; }
@@ -249,6 +252,10 @@ header.top { position: sticky; top: 12px; z-index: 50; padding-top: 12px; }
 .n0 { stroke: var(--accent); opacity: .9; } .n1 { stroke: color-mix(in srgb, var(--accent) 80%, #8a6bff); opacity: .8; }
 .n2 { stroke: color-mix(in srgb, var(--accent) 60%, #8a6bff); opacity: .72; } .n3 { stroke: color-mix(in srgb, var(--accent) 40%, #8a6bff); opacity: .64; }
 .n4 { stroke: color-mix(in srgb, var(--accent) 20%, #8a6bff); opacity: .56; } .n5 { stroke: #8a6bff; opacity: .5; }
+.mmusic .wave .dot.dsh { fill: url(#dshine); display: none; }
+:root[data-theme="dark"] .mmusic .wave .dot.dsh { display: inline; }
+.rb .ic.cog { fill: currentColor; stroke: none; fill-rule: evenodd; }
+.mmusic .km { font-family: "Niradei", var(--font), "Noto Sans Khmer", "Khmer OS", sans-serif; line-height: 1.35; }
 .mmusic .wave .dot { fill: var(--accent); animation: rise 3.4s ease-out infinite; transform-box: fill-box; }
 @keyframes rise { from { transform: translateY(0); opacity: .9; } to { transform: translateY(-16px); opacity: 0; } }
 @keyframes wv { from { transform: translateX(-3%); } to { transform: translateX(3%); } }
