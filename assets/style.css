@@ -185,7 +185,7 @@ header.top { position: sticky; top: 12px; z-index: 50; padding-top: 12px; }
 .mmap .bub rect { fill: #4b8df8; } .mmap .bub text { fill: #fff; font-size: 9px; font-weight: 700; }
 .mmap .car { fill: #2f7bff; stroke: #fff; stroke-width: 2.6; stroke-linejoin: round; }
 .mmap .stop circle { fill: #ea4335; stroke: #fff; stroke-width: 2.5; } .mmap .stop text { fill: #fff; font-size: 11px; font-weight: 700; }
-.mmap .pinred path { fill: #ea4335; stroke: #fff; stroke-width: 1.2; transform: translate(0 -6px); }
+.mmap .pinred path { fill: #ea4335; stroke: #fff; stroke-width: 1.2; } .mmap .pinred .hole { fill: #fff; }
 .mmap .pins circle { fill: #2bb673; stroke: #fff; stroke-width: 2.4; } .mmap .pins path { fill: #fff; }
 .mmap .pins .sel circle { stroke-width: 3; }
 .mmap .routeg, .mmap .altg, .mmap .pins, .mmap .stop { transition: opacity .45s; }
@@ -215,12 +215,15 @@ header.top { position: sticky; top: 12px; z-index: 50; padding-top: 12px; }
 .gstack { position: absolute; right: 8px; bottom: 44px; display: flex; flex-direction: column; gap: 6px; opacity: 0; transition: opacity .4s; }
 .s-nav .gstack, .s-alt .gstack, .s-notif .gstack { opacity: 1; }
 .xbtn { position: absolute; right: 8px; bottom: 44px; opacity: 0; transition: opacity .4s; }
-.evcard { right: 8px; top: 8px; width: 56%; padding: 9px 11px; opacity: 0; pointer-events: none; transform: translateY(-8px); }
+.evwrap { position: absolute; left: 46px; top: 8px; width: 52%; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.evwrap .evcard, .evwrap .evbar { position: relative; }
+.evcard { align-self: stretch; padding: 9px 11px; opacity: 0; pointer-events: none; transform: translateY(-8px); }
 .evcard .evh { font-size: .8rem; } .evcard .evm { font-size: .68rem; color: var(--accent); margin-top: 2px; }
 .evcard .evb { display: flex; align-items: center; gap: 6px; margin-top: 7px; }
 .evcard .go { flex: 1; background: var(--accent); color: var(--on-accent); font-weight: 700; font-size: .78rem; padding: 4px 0; text-align: center; border-radius: 999px; }
 .evcard .l-add { display: none; } .s-chargers.add .evcard .l-add { display: inline; } .s-chargers.add .evcard .l-go { display: none; }
-.evbar { right: 12%; top: 40%; padding: 4px 14px; display: flex; gap: 14px; align-items: center; font-size: .78rem; opacity: 0; transform: translateY(8px); }
+.evbar { padding: 4px 10px; display: flex; gap: 10px; align-items: center; font-size: .78rem; opacity: 0; transform: translateY(8px); }
+.evbar .ic { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .notif { left: 50%; top: 8px; transform: translate(-50%, -140%); display: flex; gap: 8px; align-items: center; padding: 8px 12px 8px 8px; opacity: 0; white-space: nowrap; }
 .notif .nic { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, #34c759, #1faa59); flex: none; }
 .notif b { display: block; font-size: .72rem; } .notif span { font-size: .66rem; color: var(--dim); display: block; }
@@ -255,6 +258,7 @@ header.top { position: sticky; top: 12px; z-index: 50; padding-top: 12px; }
 .mmusic .wave .dot.dsh { fill: url(#dshine); display: none; }
 :root[data-theme="dark"] .mmusic .wave .dot.dsh { display: inline; }
 .rb .ic.cog { fill: currentColor; stroke: none; fill-rule: evenodd; }
+.rb .ic .fl { fill: currentColor; stroke: none; } .rb .ic .dim { opacity: .45; }
 .mmusic .km { font-family: "Niradei", var(--font), "Noto Sans Khmer", "Khmer OS", sans-serif; line-height: 1.35; }
 .mmusic .wave .dot { fill: var(--accent); animation: rise 3.4s ease-out infinite; transform-box: fill-box; }
 @keyframes rise { from { transform: translateY(0); opacity: .9; } to { transform: translateY(-16px); opacity: 0; } }
@@ -397,7 +401,7 @@ footer p { max-width: 46em; margin: 0 auto .6em; }
   .mclock, .mmusic { padding: 10px; overflow: hidden; }
   .mclock .t { font-size: 1.6rem; }
   .mclock .w span:last-child, .mclock .ev1, .mmusic .art, .mbanner span { display: none; }
-  .mmap .evcard { width: 66%; }
+  .mmap .evwrap { width: 62%; }
   .mbanner { max-width: 70%; padding: 6px; }
   .mbanner .turn { width: 30px; height: 30px; }
   .mbanner b { font-size: .95rem; }
