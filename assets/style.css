@@ -282,6 +282,11 @@ section { padding: 52px 0; }
 .sizes { display: grid; grid-template-columns: .8fr 1.25fr 1.5fr; gap: 16px; align-items: stretch; }
 .size { padding: 18px 18px 22px; text-align: center; margin: 0; }
 .size .il { display: block; width: 100%; height: 230px; margin: 0 0 14px; }
+/* real screenshots (map and personal details masked); the one matching the site's theme is shown */
+.size .shot { display: flex; justify-content: center; align-items: center; height: 280px; margin: 0 0 14px; }
+.size .shot img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 12px; box-shadow: 0 10px 24px -14px rgba(0,0,0,.55); }
+.size .shot .sl, :root[data-theme="light"] .size .shot .sd { display: none; }
+:root[data-theme="light"] .size .shot .sl { display: block; }
 .size .wf { margin: 4px auto 16px; display: grid; gap: 6px; padding: 8px; border-radius: 12px; background: var(--chip); }
 .size .wf i { display: block; border-radius: 6px; background: rgba(var(--accent-rgb), .45); }
 .size .wf i.m { background: rgba(var(--accent-rgb), .22); }
@@ -378,6 +383,8 @@ footer p { max-width: 46em; margin: 0 auto .6em; }
   .nav .iconbtn#theme-btn { margin-left: auto; }
   .grid.f3, .grid.f2, .sizes { grid-template-columns: 1fr; }
   .size .il { height: auto; max-height: 260px; }
+  .size .shot { height: auto; max-height: 420px; }
+  .size .shot img { max-height: 420px; }
   .screen { grid-template-columns: 40px minmax(0, 1fr); aspect-ratio: auto; min-height: 330px; }
   .carscreen { padding: 10px; }
   .mclock, .mmusic { padding: 10px; overflow: hidden; }
