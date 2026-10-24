@@ -475,3 +475,18 @@ html.lang-km h1, html.lang-km h2, html.lang-km h3 { line-height: 1.45; }
 .il .cv { fill: var(--accent); opacity: .85; } .il .pg { fill: var(--chip); } .il .wv { stroke-width: .9; fill: none; }
 .il .gb { fill: var(--glass-strong); stroke: var(--rim); stroke-width: .8; }
 .il .gr { fill: var(--chip); } .il .gl { fill: var(--text); opacity: .8; }
+
+/* Google's turn banner (3.0.1 design): the top piece and the "Then" tab under it are one shape: a straight left edge,
+   square corners where they join, the tab only as wide as its text, a little darker, joined edge to edge */
+.turnwrap { position: absolute; left: 8px; top: 8px; max-width: 64%; display: flex; flex-direction: column; align-items: flex-start; z-index: 2; transition: opacity .4s; }
+.turnwrap .mbanner, .turnwrap .mthen { position: relative; left: auto; top: auto; max-width: none; }
+.turnwrap .mbanner { z-index: 1; border-radius: 14px 14px 14px 0; padding: 10px 14px 10px 10px; gap: 10px; box-shadow: inset 0 1px 0 var(--lit); }
+.turnwrap .mbanner .turn { width: 34px; height: 34px; background: none; border-radius: 0; }
+.turnwrap .mbanner .turn .ic { width: 30px; height: 30px; stroke-width: 3.2; stroke-linecap: butt; }
+.turnwrap .mbanner .turn .fl { fill: currentColor; stroke: none; }
+.turnwrap .mbanner b { font-size: 1.15rem; }
+.turnwrap .mthen { margin-top: -1px; padding: 5px 12px 5px 10px; border-radius: 0 0 10px 10px; --r: 0 0 10px 10px; border-top: 0; gap: 5px; font-size: .66rem; font-weight: 600;
+  background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)); }
+:root[data-theme="light"] .turnwrap .mthen { background-image: linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.08)); }
+.turnwrap .mthen::after { display: none; }
+@media (max-width: 560px) { .turnwrap { max-width: 70%; } .turnwrap .mthen { padding: 3px 8px; } .turnwrap .mbanner { padding: 6px; } }
