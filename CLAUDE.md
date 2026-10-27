@@ -5,6 +5,7 @@ Read this first. Public website of the app "Xiaomi Cockpit" (https://xiaomi-cock
 ## Who you work with
 - The user has no coding knowledge: explain in plain language, give exact click steps, do the coding yourself. They use Windows and the GitHub website.
 - Work on `main` directly (small static site). Push, then check https://xiaomi-cockpit.github.io a minute later.
+- Commits: author `pagnchanak <68956560+pagnchanak@users.noreply.github.com>`; never add `Co-Authored-By: Claude` or `Claude-Session` lines (the user wants no Claude in the history; old commits were rewritten).
 - You cannot create releases, delete branches or change repository/Pages settings from the session; tell the user the clicks.
 
 ## Purpose
