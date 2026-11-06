@@ -226,11 +226,11 @@
       tick(); setInterval(tick, 10000);
     }
 
-    /* the preview shows the app in turn: a route, other routes, the chargers (and adding one as a stop), a notification, the dock being edited, rain and a clear sky */
+    /* the preview shows the 5.0 Immersive UI in turn: driving a route (Ahead card, trip bar), no route (For you card), each in sun and in rain */
     var scr = document.querySelector(".carscreen .screen");
     if (scr && !reduce) {
-      var states = ["s-nav", "s-alt", "s-chargers", "s-chargers add", "s-notif", "s-edit", "s-rain", "s-sun"], si = 0;
-      setInterval(function () { si = (si + 1) % states.length; scr.className = "screen " + states[si]; }, 4200);
+      var states = ["s-drive", "s-drive rain", "s-free", "s-free rain"], si = 0;
+      setInterval(function () { si = (si + 1) % states.length; scr.className = "screen hz " + states[si]; }, 4200);
     }
 
     /* latest version badge, from the public release (shown again after a language change re-creates the badge text) */

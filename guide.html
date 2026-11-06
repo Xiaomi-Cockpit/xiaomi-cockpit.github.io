@@ -11,7 +11,7 @@
 <link rel="icon" href="assets/brand/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:image" content="https://xiaomi-cockpit.github.io/assets/brand/icon-512.png">
-<link rel="stylesheet" href="assets/style.css?v=202610252100">
+<link rel="stylesheet" href="assets/style.css?v=202611061200">
 <script>
   (function () {
     try {
@@ -62,12 +62,13 @@
       <a href="#clock">Clock and weather</a>
       <a class="sub" href="#weather-fx">Weather effects</a>
       <a href="#music">Music</a>
+      <a href="#foryou">For you and Ahead</a>
       <a href="#map">Map and navigation</a>
       <a class="sub" href="#google-key">Get a Google key</a>
       <a class="sub" href="#yandex-key">Get a Yandex key</a>
       <a class="sub" href="#route">Set a destination</a>
       <a class="sub" href="#usual-routes">Your usual routes</a>
-      <a class="sub" href="#banner">The turn banner</a>
+      <a class="sub" href="#banner">Google's navigation screen</a>
       <a class="sub" href="#chargers">Nearby chargers</a>
       <a href="#notifications">Phone notifications</a>
       <a href="#dock">The app dock</a>
@@ -128,10 +129,11 @@
 
     <!-- ===== layouts ===== -->
     <h2 id="layouts">The three layouts</h2>
+    <p>From version 5.0 every layout uses the <b>Immersive UI</b>: the live map fills the whole screen behind everything, and the cards float over it as frosted glass. The map's camera keeps your car in the open part of the map between the cards.</p>
     <ul>
-      <li><b>Phone and tall windows:</b> clock, live map, music and the app row stacked from top to bottom.</li>
-      <li><b>Compact car screen:</b> apps in a column on the left, music and clock side by side on top, the map as one wide box underneath.</li>
-      <li><b>Full car screen:</b> apps on the left, a big map in the middle, the clock above a full music player on the right. From version 3.0 the car keeps this layout while you drive.</li>
+      <li><b>Phone and tall windows:</b> the clock bar on top, the live map behind everything, the music bar and the dock at the bottom.</li>
+      <li><b>Compact car screen:</b> the pill dock on the left, the map in the middle and one column on the right with the clock, the music and the For you card.</li>
+      <li><b>Full car screen:</b> the same arrangement with more room: an hourly forecast in the clock card and a bigger music card. The car keeps this layout while you drive.</li>
     </ul>
     <p>The layout is chosen automatically from the window's shape. Nothing scrolls, and sizes are scaled so that icons and text look the same size on the phone and on each car layout.</p>
 
@@ -140,28 +142,26 @@
     <div class="tablewrap"><table>
       <tr><th>Do this</th><th>To get this</th></tr>
       <tr><td>Swipe down on the dashboard</td><td>Everything slides away and the settings button appears. Swipe back to hide it. Once a day the button peeks out for a second to remind you.</td></tr>
-      <tr><td>Press and hold on an empty spot for about a second</td><td>The background picker opens. This does not work on the app dock or on the map.</td></tr>
-      <tr><td>Press and hold the dock</td><td>Edit mode: the icons wobble slowly. Drag to reorder, tap the badge to remove, tap <b>+</b> to add. Tap outside to finish.</td></tr>
+      <tr><td>Press and hold the dock</td><td>Edit mode: the icons wobble slowly. Drag to reorder, tap the badge to remove. Tap outside to finish.</td></tr>
       <tr><td>Pinch, drag or turn the map</td><td>Zoom, move and, with two fingers, rotate the map. A round reset button appears (only after you moved it) to bring it back to your position.</td></tr>
-      <tr><td>Swipe down on an opened dock</td><td>Closes it (portrait layout).</td></tr>
-      <tr><td>Tap the cover or title</td><td>Opens the music app.</td></tr>
+      <tr><td>Press and hold an app in the app drawer</td><td>Drag it onto the dock.</td></tr>
       <tr><td>Tap the clock</td><td>Switches between 12-hour and 24-hour time. All times in the app follow it.</td></tr>
       <tr><td>Tap the weather</td><td>Refreshes the weather now.</td></tr>
-      <tr><td>Tap the next events</td><td>Asks the phone to sync its calendars and reads the events again.</td></tr>
+      <tr><td>Tap the event in the For you card</td><td>Joins the online meeting (Join) or opens the event in your calendar.</td></tr>
       <tr><td>Swipe a notification card up, or tap outside it</td><td>Dismisses the phone notification card.</td></tr>
       <tr><td>Press and hold the weather</td><td>Opens the settings at Weather.</td></tr>
-      <tr><td>Press and hold the music widget</td><td>Choose the default music app.</td></tr>
+      <tr><td>Press and hold the music widget</td><td>Opens the music app.</td></tr>
       <tr><td>Press and hold the live map</td><td>Opens the settings at Service.</td></tr>
       <tr><td>Press and hold Home or Work in the search card</td><td>Choose that place on the map.</td></tr>
     </table></div>
 
     <!-- ===== clock ===== -->
     <h2 id="clock">Clock and weather</h2>
-    <p>The clock card shows the time in large light digits, the date on two lines, and the weather on the right: the temperature and an icon, the condition, your city and the day's high and low.</p>
+    <p>The clock card shows the time in large light digits, the date, and the weather: the temperature and the condition. On the full car screen it also shows the next five hours. With the weather animation on, a small glass sun or moon sits in the open space of the card.</p>
     <ul>
       <li><b>Weather source:</b> Weather comes from <b>Google</b> (with your Google key) or from free <b>Open-Meteo</b>. It works with every map service; the Yandex key is only for the map. With Google the condition words (for example Cloudy) are Google's own; with Open-Meteo they are the app's. In <b>Settings &gt; Weather</b> you find <b>Weather provider</b>, <b>City</b>, <b>Weather animation</b> and <b>Update frequency</b> (every 15 minutes to every 3 hours, 30 minutes by default). If Google does not answer, a note under the provider row says why and Open-Meteo is used for now.</li>
       <li><b>City or your location:</b> the <b>City</b> row opens a search: type a name and choose from the list, or tap <b>Use my location</b>. With no city chosen, the weather follows the phone's location by itself, and the place name comes from OpenStreetMap.</li>
-      <li><b>Next events</b> (bottom left) lists up to three upcoming events, one per line, like <i>Today · All day · Dentist</i> or <i>Tue · 14:30 · Team meeting</i>. The first part is <i>Today</i>, then the weekday for the next days, and a date such as <i>Oct 12</i> from a week away. Long titles are cut with “…”. It needs the Calendar permission. Tap the events to make the phone sync its calendars and read them again.</li>
+      <li><b>Next event:</b> your next calendar event is in the <a href="#foryou">For you card</a>.</li>
       <li><b>Status gauge</b> (top right): the ring is the battery level, the Wi-Fi symbol inside shows Wi-Fi strength and the dots under it show mobile signal. When you plug the phone in, a green lightning bolt takes the place of the Wi-Fi symbol for a few seconds, and while it charges the ring is green and glows softly, with a pulse running along it.</li>
       <li><b>Quick taps:</b> tap the clock to switch between 12-hour and 24-hour time (all times in the app follow it), and tap the weather to refresh it now. Press and hold the weather to open the weather settings.</li>
     </ul>
@@ -169,7 +169,7 @@
     <h3 id="weather-fx">Weather effects</h3>
     <p>The dashboard shows the weather as well as telling it. The clock card has a sky with clouds that follow the condition (clear, partly cloudy, overcast, fog, rain, snow, storm). Rain falls over the whole dashboard, splashes on the top edge of the cards, and small drops form on the clock card, merge and run down the glass, bending the text behind them. Snow piles up on the top edges of the cards and the dock. Thunderstorms add lightning that flashes across the screen.</p>
     <ul>
-      <li>The weather never changes the theme or the map: <i>Light</i> and <i>Dark</i> stay as you set them, and the live map's night style is set with <b>Night map</b> (see <a href="#map">Map and navigation</a>). The weather picture on the clock card fades softly at the card's edge, like a view through glass.</li>
+      <li>The weather never changes the theme or the map; the <b>Theme</b> setting decides both. The weather picture on the clock card fades softly at the card's edge, like a view through glass.</li>
       <li>The glass edge glow (the accent light along a card's rim) stays on top of the sky and the rain on the clock card.</li>
       <li>The effects are on by default. Switch everything off with <b>Settings &gt; Weather &gt; Weather animation</b>. Then the theme stays as you chose it.</li>
       <li>Rain and snow only show when the weather data is there, for your city or for your location.</li>
@@ -180,23 +180,33 @@
     <p>The music card shows what any music app is playing: the cover, the title and the artist, with previous, play / pause and next buttons.</p>
     <ul>
       <li>When nothing is playing it says so; tap it to open your music app. Choose the app in <b>Settings &gt; Music &gt; Default music app</b>.</li>
-      <li><b>Like button:</b> if the playing app offers a like (for example YouTube Music), a heart takes the place of the previous button. Tap to like or unlike.</li>
+      <li><b>Like and up next:</b> if the playing app offers a like or a queue (for example YouTube Music), the full car screen shows a heart and an up next button next to the controls.</li>
       <li><b>Progress bar:</b> the larger layouts show the elapsed time, the length and a bar you can drag to jump in the song.</li>
       <li><b>Play when connected:</b> optionally start playing by itself when the car connects (<b>Settings &gt; Look and behaviour</b>).</li>
-      <li><b>Music ribbon:</b> behind the buttons a twisting ribbon of thin lines, in the two main colours of the album cover, sways and turns with the music, with small dots rising from it. Faster songs make it move faster, and it calms down when the music pauses. The round buttons are frosted glass.</li>
-      <li><b>Cover:</b> with nothing playing the cover is a frosted-glass tile with a disc icon, and a tap anywhere on the widget opens your default music app. Press and hold the widget to choose that app.</li>
+      <li><b>Music ribbon:</b> a twisting ribbon of thin lines in shades of the accent colour sways with the music, with small sparks rising from it. It calms down when the music pauses. The play button is filled with the accent colour.</li>
+      <li><b>Cover:</b> with nothing playing the cover is a frosted-glass tile with a disc icon, and a tap anywhere on the widget opens your default music app. Press and hold the widget to open the music app.</li>
       <li>With the <i>Album art</i> accent, the colours of the app follow the cover of the current song.</li>
     </ul>
     <div class="tip"><p><b>Nothing shows?</b> The music card needs <b>Music and navigation access</b>. Check that it says <i>Allowed</i> in the setup screen.</p></div>
 
+    <!-- ===== for you ===== -->
+    <h2 id="foryou">For you and Ahead</h2>
+    <p>The card under the music shows what you may need next. As many rows show as fit.</p>
+    <ul>
+      <li><b>Home</b> and <b>Work</b> with the drive time and how busy the way is (light, some or heavy traffic, or <i>Your usual route</i>). Tap one to start the route. A place is left out while you are already there. Drive times need the Google service and your key.</li>
+      <li><b>Chargers nearby</b>, or <b>Set your home</b> when no Home is saved yet.</li>
+      <li><b>Next event</b> from your calendar: the title, when it is (<i>Now · until 15:00</i>, <i>Today · 14:30</i>) and the place, with a countdown. Online meetings (Meet, Zoom, Teams, Webex) show <b>Join</b> when they are about to start; tap the row to join or to open the event.</li>
+      <li><b>While you drive a route</b> the card becomes <b>Ahead</b>: your stops and the destination with their arrival times, and slow traffic further along the route with roughly how many minutes it costs.</li>
+    </ul>
+
     <!-- ===== map ===== -->
     <h2 id="map">Map and navigation</h2>
-    <p>The map is Google's own live map, with 3D buildings and traffic, following your car (or Yandex's map with traffic, if you choose the Yandex service). At night it switches to Google's dark map style. As you speed up it zooms out smoothly; while you drive it tilts into a driving view. Your car is a blue arrow. Tap the expand button to make the map fill the screen. On the phone and the compact car screen, the search and charger buttons first make the map bigger, and it goes back to its size when a route starts.</p>
+    <p>The map is Google's own live map, with 3D buildings and traffic, following your car (or Yandex's map with traffic, if you choose the Yandex service). It fills the whole screen behind the cards. The <b>Theme</b> setting decides whether it shows the day or the night map. As you speed up it zooms out smoothly; while you drive it tilts into a driving view. Your car is a blue arrow, with a pale circle showing how exact the position is.</p>
     <ul>
       <li><b>Driving view:</b> always on. The map tilts into 3D by itself once the car moves.</li>
       <li><b>Reset button:</b> after you drag, pinch or turn the map, a round arrow brings it back to your position. It shows only after you moved the map.</li>
-      <li><b>Round buttons</b> on the left of the map: <b>Charger</b> (bolt), <b>Search</b>, <b>Voice</b> (cycles spoken guidance between silent, alerts only and guidance, Google service only), <b>View</b> (3D navigation view or north up) and <b>Settings</b> (map settings such as live traffic and satellite view). The small map card shows only Charger and Search until you expand it. While a destination is chosen, an ✕ appears where the reset button sits; while a route runs, the trip buttons sit on the right (see <a href="#banner">Google's navigation screen</a>). While you drive, the buttons fade away 5 seconds after you last touched the map and come back with a touch; the expand button always stays.</li>
-      <li><b>Night map</b> (in the map's <b>Settings</b> button): <b>Auto</b> shows the night style while the sun is down where the car is, <b>Theme</b> follows the dashboard's theme, <b>On</b> always shows the night style of the map and <b>Off</b> the day style. The buttons and cards over the map change their colours to stay readable.</li>
+      <li><b>Button pill</b> at the top right of the map: <b>Charger</b> (bolt), <b>Search</b>, <b>Voice</b> (cycles spoken guidance between silent, alerts only and guidance, Google service only), <b>View</b> (3D navigation view, top view or north up) and <b>Settings</b> (theme, live traffic and satellite view). Cards you open from it appear next to it. While a destination is chosen, an ✕ appears where the reset button sits. The buttons always stay visible.</li>
+      <li><b>Glass that catches the light:</b> the edges of the panels over the map light up where a bright colour of the map passes behind them, such as the blue route, water or a park, each in its own colour.</li>
       <li><b>Bolt button</b> (the first round button): finds nearby EV chargers, see <a href="#chargers">Nearby chargers</a>.</li>
     </ul>
     <p>Choose the service in <b>Settings &gt; Service &gt; API service</b> (the setup guide asks on the first start):</p>
@@ -235,9 +245,9 @@
       <li>Tap the magnifier (<b>Search</b>). A card opens at the top with <b>Home</b>, <b>Work</b> and a search field. Tap the field to type; a tap always brings the keyboard back.</li>
       <li>Type a place or an address. Results appear while you type, nearest to your car first. Tap one.</li>
       <li>The destination card shows the time and distance with <b>Start</b>, the alternative-routes button and <b>+</b> to add a stop. The route is drawn on the map, coloured by traffic: blue is normal, orange is slow and red is a jam.</li>
-      <li>To stop, tap the ✕ button on the map: while a destination is chosen it takes the place of the reset button, and while a route runs it is one of the round buttons on the right, above the expand button.</li>
+      <li>To stop, tap the ✕ button: while a destination is chosen it takes the place of the reset button, and while a route runs it is at the right end of the trip bar.</li>
       <li><b>Alternative routes:</b> the other routes are drawn on the map in grey. Tap one to choose it; a small bubble says how many minutes faster or slower it is. The route you choose is the one Google guides you along, even when it is a little slower. If you turn onto another road, a new route is found at once.</li>
-      <li><b>Stops:</b> tap <b>+</b> to add up to four stops. Tap the trip card to edit the trip: drag the stops into order or remove them. Each stop is drawn on the map as a numbered red disc.</li>
+      <li><b>Stops:</b> tap <b>+</b> to add up to four stops. While you drive, <b>Add stop</b> on the trip bar opens the trip editor: drag the stops into order or remove them. Each stop is drawn on the map as a numbered red disc.</li>
     </ol>
     <p>With the <b>Yandex API</b> service the route is drawn with Yandex's traffic colours and travel time (a bubble shows the minutes), but the app does not guide you turn by turn.</p>
     <p>To set <b>Home</b> and <b>Work</b>, open <b>Settings &gt; Map</b> and tap the row. You can <b>pick on the map</b>, <b>paste a map link</b> (from Google Maps, Apple Maps, Waze, Amap, OpenStreetMap and others), <b>type an address</b>, or clear it. A spot picked on the map is exact.</p>
@@ -254,22 +264,21 @@
     </ul>
 
     <h3 id="banner">Google's navigation screen</h3>
-    <p>While you drive a route with the Google service, the map becomes Google's own navigation screen: Google's blue arrow shows your car, Google's camera follows you (the <b>View</b> button chooses the 3D view, the top view or north up) and the route line shows the traffic. Google's own cards sit in frosted glass on top of the map:</p>
+    <p>While you drive a route with the Google service, the map becomes Google's own navigation screen: Google's blue arrow shows your car, Google's camera follows you (the <b>View</b> button chooses the 3D view, the top view or north up) and the route line shows the traffic. On top of the map:</p>
     <ul>
-      <li><b>Turn banner</b> (top left): the turn arrow, the distance to the turn and the instruction with the street name. It is only as wide as its text needs; a long name goes onto a second line.</li>
-      <li><b>Then banner:</b> when another turn follows closely, Google's small <b>Then</b> banner with its arrow sits in its own glass just below.</li>
-      <li><b>Arrival card</b> (bottom left): the time left, the distance left and the arrival time.</li>
-      <li><b>Trip buttons</b> (right, above the expand button): ✕ ends the route, the alternatives button shows other routes and + adds a stop. After you moved the map, a re-center button appears above them.</li>
-      <li>On the car screens the cards are sized to match the rest of the dashboard.</li>
+      <li><b>Turn banner</b> (top left): the turn arrow, the distance to the turn and the street name, with the lanes where Google knows them. When another turn follows closely, a small <b>Then</b> tab with its arrow sits below it.</li>
+      <li><b>Trip bar</b> (bottom): the minutes left in green, the arrival time and the distance, a line that shows how far you are with your stops and chargers on it, and the buttons <b>Other routes</b>, <b>Add stop</b> and ✕ to end the route. On smaller screens the arrow next to ✕ shows the first two buttons.</li>
+      <li><b>Speed bubble</b> (above the trip bar on the left): your speed, and the road's speed limit as a round sign where OpenStreetMap knows it. The number turns red when you are over the limit.</li>
+      <li>After you moved the map, a re-center button appears at the bottom right.</li>
     </ul>
-    <p>If you leave the route, a new one is found at once. Turn-by-turn needs the Google service: Yandex and None show no banner.</p>
+    <p>If you leave the route, a new one is found at once. Turn-by-turn needs the Google service: Yandex and None show the trip bar, but no turn banner.</p>
 
     <h3 id="chargers">Nearby chargers</h3>
     <p>Tap the bolt button, the first of the round buttons on the live map. Green charger pins appear around you and the nearest charger is chosen at once. A card shows its name, the distance and drive time, every connector type known for the station (like CCS2 · GB/T) and where it is, smallest area first, for example Nirouth · Chbar Ampov · Phnom Penh. A part that is not known is simply left out.</p>
     <ul>
       <li>The 15 closest chargers are found, wherever they are (there is no distance limit, so in a remote area they can be in the next district or province), with the quickest to reach first.</li>
       <li>A bar at the bottom steps through the other stations with arrows. The map zooms to show you, the charger and the blue route between, and the other chargers as pins.</li>
-      <li><b>Go</b> starts the route to the chosen charger. The ✕ where the reset button sits cancels your choice.</li>
+      <li><b>Start</b> starts the route to the chosen charger. The ✕ where the reset button sits cancels your choice.</li>
       <li>With your Google key the list comes from Google Places with the connector types; without a key, or when Google finds nothing, it comes from OpenStreetMap, which often has less detail (a station may then show no connector types).</li>
       <li><b>While you drive a route</b>, the bolt button hides the route for a moment and the card says <b>Add</b>: the charger becomes a stop before your destination and the route is recalculated. If you cancel, the old route comes back.</li>
     </ul>
@@ -285,11 +294,13 @@
 
     <!-- ===== dock ===== -->
     <h2 id="dock">The app dock</h2>
-    <p>The dock holds your favourite apps. Tapping one opens it on the same screen the dashboard is on, so on the car screen the app opens on the car.</p>
+    <p>The dock is a glass pill with round icons: on the left side of the car screens, at the bottom on the phone. Tapping an app opens it on the same screen the dashboard is on, so on the car screen the app opens on the car.</p>
     <ul>
-      <li><b>All apps:</b> the last button opens a sheet with every app on the phone.</li>
-      <li><b>Edit the dock:</b> press and hold the dock. The icons wobble slowly. Drag to reorder, tap the round badge at the top right of an icon to remove it, and tap the <b>+</b> button at the end to add apps (the list has search and app icons). Tap outside the dock, or open <b>All apps</b>, to finish.</li>
-      <li><b>Work profile and dual apps:</b> the list of apps also shows the apps of your work profile and Xiaomi's dual apps, with their badge or marked <i>(second copy)</i>. They open on the car screen like any other app.</li>
+      <li><b>Assistant button</b> (first): opens your phone's voice assistant, for example Gemini or Xiao AI.</li>
+      <li><b>App drawer</b> (last): a frosted page with <b>Personal</b> and <b>Work</b> tabs. <b>On your dock</b> shows the dock's apps in order, <b>Apps</b> the others from A to Z. <b>Customize</b> chooses which apps the drawer lists. Press and hold an app and drag it onto the dock to pin it there.</li>
+      <li><b>Edit the dock:</b> press and hold the dock. The icons wobble slowly. Drag to reorder and tap the round badge at the top right of an icon to remove it. Tap outside the dock to finish.</li>
+      <li>The dock holds as many apps as fit on the full car screen; the smaller layouts show the first ones.</li>
+      <li><b>Work profile and dual apps</b> are in the Work tab and open on the car screen like any other app.</li>
     </ul>
 
     <!-- ===== floating ===== -->
@@ -313,7 +324,7 @@
       <tr><td><b>Weather</b></td><td><b>Weather provider</b> (Google or Open-Meteo), <b>City</b> (search, or <b>Use my location</b>), <b>Weather animation</b>, <b>Weather animation override</b> and <b>Update frequency</b>.</td></tr>
       <tr><td><b>Map</b></td><td><b>Home</b> and <b>Work</b>, <b>Live traffic update</b> and <b>Route learning</b>. See <a href="#usual-routes">Your usual routes</a>.</td></tr>
       <tr><td><b>Music</b></td><td>The <b>Default music app</b>. The dock apps are set on the dashboard itself: press and hold the dock.</td></tr>
-      <tr><td><b>Look and behaviour</b></td><td><b>Language</b>, <b>Theme</b>, <b>Background</b>, <b>Animated background</b>, <b>Accent colour</b>, <b>Play music when connected to car</b>, <b>Show phone notifications on the dashboard</b>, <b>Floating home button</b> and <b>Power saver</b>. See <a href="#look">Looks and themes</a>.</td></tr>
+      <tr><td><b>Look and behaviour</b></td><td><b>Language</b>, <b>Style</b>, <b>Theme</b>, <b>Glass frost</b>, <b>Accent colour</b>, <b>Play music when connected to car</b>, <b>Show phone notifications on the dashboard</b>, <b>Floating home button</b> and <b>Power saver</b>. See <a href="#look">Looks and themes</a>.</td></tr>
       <tr><td><b>Updates</b></td><td>The installed version, <b>Update channel</b> (Stable or Dev), <b>Check for updates</b>, and <b>Check for updates automatically</b>. See <a href="#updates">Updating</a>.</td></tr>
       <tr><td><b>Backup</b></td><td><b>Back up settings</b> to one file and <b>Restore settings</b> from it. See <a href="#backup">Backup and restore</a>.</td></tr>
       <tr><td><b>Support</b></td><td><b>Report a problem</b> and <b>Request a feature</b>: send a description, screenshots and the app log. See <a href="#report">Report a problem</a>.</td></tr>
@@ -323,13 +334,13 @@
     <!-- ===== look ===== -->
     <h2 id="look">Looks and themes</h2>
     <ul>
-      <li><b>Theme:</b> <i>Follow phone</i>, <i>Dark</i>, <i>Light</i> or <i>Auto (sunrise/sunset)</i>, which is dark between sunset and sunrise at your weather city. The dashboard switches by itself, with a smooth fade, when the phone changes mode, when the sun sets or rises, or when you change the setting. Your choice always wins: the weather never changes it.</li>
-      <li><b>Background:</b> the colour styles <i>Cockpit</i>, <i>Dusk</i>, <i>Forest</i>, <i>Graphite</i> and <i>Slate</i>, or <i>My photo</i> from your gallery. A press and hold on an empty spot of the dashboard opens the picker too.</li>
-      <li><b>Animated background:</b> soft moving light and large colour bubbles behind the glass (not used with a photo).</li>
+      <li><b>Style:</b> <i>Glass</i> (frosted panels) or <i>Material</i> (flat, solid colours in the Material You style). The layout is the same in both.</li>
+      <li><b>Theme:</b> <i>System</i>, <i>Time</i> (dark between sunset and sunrise), <i>Light</i> or <i>Dark</i>. It decides both the dashboard and the day or night map, and it switches with a smooth fade.</li>
+      <li><b>Glass frost:</b> a slider from clear to frosted glass, with a dot at the default.</li>
       <li><b>Accent colour:</b> Mint, Sky, Violet, Pink, Orange, Yellow, Red, Lime, a custom colour, or <i>Album art</i> to follow the song.</li>
-            <li><b>Weather animation</b> (in <b>Settings &gt; Weather</b>): the sky, rain, snow and lightning. <b>Weather animation override</b>, just below it, shows any condition, for example snow, even when the real weather is different.</li>
-      <li><b>Power saver:</b> turns off the animated background, the weather effects and the 3D buildings and updates the map less often. It also switches on by itself while the phone's battery saver is on or the phone is hot.</li>
-      <li>The <b>glass shadow</b> under the panels and the <b>glass edge refraction</b> (Android 13 and newer: the rim of each panel, and of the live map, picks up the accent light of the bubbles behind it) are always on.</li>
+      <li><b>Weather animation</b> (in <b>Settings &gt; Weather</b>): the sky, rain, snow and lightning. <b>Weather animation override</b>, just below it, shows any condition, for example snow, even when the real weather is different.</li>
+      <li><b>Power saver:</b> turns off the weather effects and the 3D buildings and updates the map less often. It also switches on by itself while the phone's battery saver is on or the phone is hot.</li>
+      <li>The <b>glass shadow</b> and the <b>glass edge light</b> (the rim of each panel lights up where a bright colour passes behind it) are always on.</li>
       <li><b>Play music when connected to car</b>, <b>Show phone notifications on the dashboard</b>, <b>Floating home button</b>.</li>
       <li><b>Language:</b> English, Khmer, Russian or Polish.</li>
     </ul>
@@ -396,7 +407,7 @@
       <li>Tap <b>Back up settings</b>.</li>
       <li>Android's file picker opens. Save the file anywhere you like, for example in Google Drive or in your Downloads folder.</li>
     </ol>
-    <p>The file holds all your settings, the dock, Home and Work, your recent places, your background photo and the learned routes. Permissions are not in it: Android asks for them again after a restore.</p>
+    <p>The file holds all your settings, the dock, Home and Work, your recent places and the learned routes. Permissions are not in it: Android asks for them again after a restore.</p>
     <p>The file is encrypted and always includes your Google and Yandex keys; only Xiaomi Cockpit can open it. Backups made with version 2 restore too.</p>
     <div class="tip"><p><b>Keep the file private.</b> The file contains your Google and Yandex keys. It is encrypted, but do not share it.</p></div>
     <h3 id="backup-restore">Restore settings</h3>
@@ -416,7 +427,7 @@
   </div>
 </footer>
 
-<script src="assets/i18n.js?v=202610221500" defer></script>
-<script src="assets/site.js?v=202610252100" defer></script>
+<script src="assets/i18n.js?v=202611061200" defer></script>
+<script src="assets/site.js?v=202611061200" defer></script>
 </body>
 </html>

@@ -146,133 +146,15 @@ header.top { position: sticky; top: 12px; z-index: 50; padding-top: 12px; }
 .btn .ic { width: 1.25em; height: 1.25em; }
 
 /* ---------- hero ---------- */
-.hero { padding: 64px 0 28px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+.hero { padding: 64px 0 28px; display: grid; grid-template-columns: .9fr 1.3fr; gap: 40px; align-items: center; }
+.hero > * { min-width: 0; }
 .hero .sub { font-size: 1.2rem; color: var(--dim); max-width: 34em; }
 .hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 16px; }
 .badges { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-flex; align-items: center; gap: 7px; padding: 6px 13px; border-radius: 999px; background: var(--chip); font-size: .85rem; color: var(--dim); }
 .chip b { color: var(--text); font-weight: 600; }
 
-/* the app preview (a drawn car screen; the states are switched by site.js) */
-.carscreen { padding: 14px; border-radius: 28px; --r: 28px; }
-.screen { position: relative; display: grid; grid-template-columns: 62px 1fr; gap: 10px; aspect-ratio: 1.26 / 1; }
-.mmain { display: grid; grid-template-rows: 37% 1fr; gap: 10px; min-height: 0; }
-.mtop { display: grid; grid-template-columns: 1.08fr 1fr; gap: 10px; min-height: 0; }
-.screen > *, .mmain > *, .mtop > * { min-width: 0; }
-.mdock { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 9px; padding: 9px 7px; border-radius: 18px; --r: 18px; position: relative; }
-.ap { display: grid; place-items: center; position: relative; width: 100%; aspect-ratio: 1; border-radius: 11px; background: var(--c, #fff); flex: none; }
-.ap svg { width: 62%; height: 62%; }
-.ap.grid, .ap.plus { background: var(--chip); border-radius: 50%; color: var(--text); }
-.ap.grid svg, .ap.plus svg { width: 52%; height: 52%; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.ap.plus { margin-top: auto; }
-.mdock .ap:first-child { margin-top: auto; }
-.ap .bd { position: absolute; right: -5px; top: -5px; width: 15px; height: 15px; border-radius: 50%; background: #4a5568; border: 1.5px solid #fff; display: none; }
-.ap .bd::before, .ap .bd::after { content: ""; position: absolute; left: 3.5px; right: 3.5px; top: 5.5px; height: 1.6px; background: #fff; transform: rotate(45deg); }
-.ap .bd::after { transform: rotate(-45deg); }
-.s-edit .ap:not(.grid):not(.plus) { animation: wob .5s ease-in-out infinite alternate; }
-.s-edit .ap:nth-child(2n) { animation-delay: -.25s; }
-.s-edit .ap .bd { display: block; }
-@keyframes wob { from { transform: rotate(-2.2deg); } to { transform: rotate(2.2deg); } }
-.mmap { position: relative; min-height: 0; border-radius: 18px; overflow: hidden; background: var(--map-bg); border: 1px solid var(--rim); transition: background-color .4s; }
-.mmap svg.streets { position: absolute; inset: 0; width: 100%; height: 100%; }
-.mmap::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .6), inset 0 0 7px rgba(var(--accent-rgb), .22); -webkit-mask-image: linear-gradient(115deg, #000 0%, transparent 34%, transparent 66%, #000 100%); mask-image: linear-gradient(115deg, #000 0%, transparent 34%, transparent 66%, #000 100%); }
-.mmap .street { stroke: var(--map-line); stroke-width: 7; fill: none; stroke-linecap: round; }
-.mmap .water { fill: var(--map-water, rgba(80, 140, 200, .22)); }
-.mmap .bld rect { fill: var(--map-bld, rgba(120, 140, 170, .22)); }
-.mmap .route { stroke: #4b8df8; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.mmap .route.slow { stroke: #f5a623; } .mmap .route.jam { stroke: #ef4444; }
-.mmap .route.alt { stroke: #8b97a8; stroke-width: 5; }
-.mmap .bub rect { fill: #4b8df8; } .mmap .bub text { fill: #fff; font-size: 9px; font-weight: 700; }
-.mmap .car { fill: #2f7bff; stroke: #fff; stroke-width: 2.6; stroke-linejoin: round; }
-.mmap .stop circle { fill: #ea4335; stroke: #fff; stroke-width: 2.5; } .mmap .stop text { fill: #fff; font-size: 11px; font-weight: 700; }
-.mmap .pinred path { fill: #ea4335; stroke: #fff; stroke-width: 1.2; } .mmap .pinred .hole { fill: #fff; }
-.mmap .pins circle { fill: #2bb673; stroke: #fff; stroke-width: 2.4; } .mmap .pins path { fill: #fff; }
-.mmap .pins .sel circle { stroke-width: 3; }
-.mmap .routeg, .mmap .altg, .mmap .pins, .mmap .stop { transition: opacity .45s; }
-.mmap .altg, .mmap .pins { opacity: 0; }
-.s-alt .altg, .s-chargers .pins { opacity: 1; }
-.s-chargers .routeg, .s-chargers .stop, .s-chargers .pinred { opacity: 0; }
-.s-nav .stop, .s-alt .stop { opacity: 0; }
-.mmap .mbtns { position: absolute; left: 8px; top: 8px; display: flex; flex-direction: column; gap: 6px; transition: opacity .4s; }
-/* while Google guides, the map buttons fade away after a few seconds; Google's turn banner takes the top left */
-.s-nav .mbtns, .s-alt .mbtns, .s-notif .mbtns { opacity: 0; }
-.rb { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: var(--text); --r: 50%; flex: none; }
-.rb .ic { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.rb.bolt .ic { fill: var(--text); stroke: none; }
-.rb.flat { width: 24px; height: 24px; background: var(--chip); }
-.rb.flat .ic { width: 12px; height: 12px; }
-.mbanner, .mthen, .trip, .evcard, .evbar, .notif { position: absolute; border-radius: 14px; --r: 14px; transition: opacity .4s, transform .45s; }
-.mbanner { left: 8px; top: 8px; max-width: 64%; display: flex; gap: 9px; align-items: center; padding: 8px 12px 8px 8px; }
-.mbanner .turn { width: 36px; height: 36px; border-radius: 9px; background: var(--chip); display: grid; place-items: center; flex: none; }
-.mbanner .turn .ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.mbanner b { display: block; font-size: 1.05rem; line-height: 1.1; }
-.mbanner span.st { font-size: .7rem; line-height: 1.2; display: block; } .mbanner em { font-style: normal; font-weight: 700; }
-.mthen { left: 8px; top: 66px; display: flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 10px; --r: 10px; font-size: .64rem; }
-.mthen .ic { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-.trip { left: 8px; bottom: 8px; padding: 6px 12px; }
-.trip .tm b { display: block; font-size: 1rem; font-weight: 700; color: #2fbf71; line-height: 1.15; } .trip small { font-size: .62rem; color: var(--dim); }
-.exp { position: absolute; right: 8px; bottom: 8px; }
-.gstack { position: absolute; right: 8px; bottom: 44px; display: flex; flex-direction: column; gap: 6px; opacity: 0; transition: opacity .4s; }
-.s-nav .gstack, .s-alt .gstack, .s-notif .gstack { opacity: 1; }
-.xbtn { position: absolute; right: 8px; bottom: 44px; opacity: 0; transition: opacity .4s; }
-.evwrap { position: absolute; left: 46px; top: 8px; width: 52%; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.evwrap .evcard, .evwrap .evbar { position: relative; }
-.evcard { align-self: stretch; padding: 9px 11px; opacity: 0; pointer-events: none; transform: translateY(-8px); }
-.evcard .evh { font-size: .8rem; } .evcard .evm { font-size: .68rem; color: var(--accent); margin-top: 2px; }
-.evcard .evb { display: flex; align-items: center; gap: 6px; margin-top: 7px; }
-.evcard .go { flex: 1; background: var(--accent); color: var(--on-accent); font-weight: 700; font-size: .78rem; padding: 4px 0; text-align: center; border-radius: 999px; }
-.evcard .l-add { display: none; } .s-chargers.add .evcard .l-add { display: inline; } .s-chargers.add .evcard .l-go { display: none; }
-.evbar { padding: 4px 10px; display: flex; gap: 10px; align-items: center; font-size: .78rem; opacity: 0; transform: translateY(8px); }
-.evbar .ic { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-.notif { left: 50%; top: 8px; transform: translate(-50%, -140%); display: flex; gap: 8px; align-items: center; padding: 8px 12px 8px 8px; opacity: 0; white-space: nowrap; }
-.notif .nic { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, #34c759, #1faa59); flex: none; }
-.notif b { display: block; font-size: .72rem; } .notif span { font-size: .66rem; color: var(--dim); display: block; }
-.s-chargers .evcard, .s-chargers .evbar { opacity: 1; transform: none; pointer-events: auto; }
-.s-chargers .xbtn { opacity: 1; }
-.s-chargers .mbanner, .s-chargers .mthen, .s-chargers .trip { opacity: 0; }
-.s-notif .notif { opacity: 1; transform: translate(-50%, 0); }
-.nscrim { position: absolute; inset: 0; border-radius: 16px; background: #000; opacity: 0; pointer-events: none; transition: opacity .4s; z-index: 20; }
-.s-notif .nscrim { opacity: .45; }
-.screen > .notif { z-index: 21; }
-:root[data-theme="dark"] .screen > .notif { background: rgba(24, 36, 50, .94); }
-:root[data-theme="light"] .screen > .notif { background: rgba(255, 255, 255, .94); }
-.s-edit .mbanner, .s-edit .mthen, .s-edit .trip { opacity: .0; }
-.mclock { padding: 10px 12px; border-radius: 18px; --r: 18px; display: flex; flex-direction: column; justify-content: space-between; }
-.mclock .mc-top { display: flex; justify-content: space-between; align-items: flex-start; }
-.mclock .tiny { font-size: .52rem; line-height: 1.3; }
-.mclock .gauge { width: 24px; height: 24px; fill: var(--text); flex: none; }
-.mclock .gauge .ring, .mclock .gauge .wifi { fill: none; stroke: var(--text); stroke-width: 3; stroke-linecap: round; }
-.mclock .gauge .wifi { stroke-width: 2.4; }
-.mclock .t { font-size: 2.3rem; font-weight: 200; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
-.mclock .w { display: flex; justify-content: space-between; align-items: flex-end; font-size: .6rem; color: var(--dim); line-height: 1.3; }
-.mclock .wx { text-align: right; }
-.mmusic { position: relative; overflow: hidden; padding: 10px 12px; border-radius: 18px; --r: 18px; display: flex; flex-direction: column; justify-content: space-between; }
-.mmusic > * { position: relative; }
-.mmusic .wave { position: absolute; left: 0; right: 0; top: 34%; width: 100%; height: 36%; }
-/* the music visualizer: one twisted ribbon of lines running from the album's main colour to its second colour, with dots rising from it */
-.mmusic .wave { animation: wv 5s ease-in-out infinite alternate; }
-.mmusic .wave path { fill: none; stroke-width: 1.15; vector-effect: non-scaling-stroke; }
-.n0 { stroke: var(--accent); opacity: .9; } .n1 { stroke: color-mix(in srgb, var(--accent) 80%, #8a6bff); opacity: .8; }
-.n2 { stroke: color-mix(in srgb, var(--accent) 60%, #8a6bff); opacity: .72; } .n3 { stroke: color-mix(in srgb, var(--accent) 40%, #8a6bff); opacity: .64; }
-.n4 { stroke: color-mix(in srgb, var(--accent) 20%, #8a6bff); opacity: .56; } .n5 { stroke: #8a6bff; opacity: .5; }
-.mmusic .wave .dot.dsh { fill: url(#dshine); display: none; }
-:root[data-theme="dark"] .mmusic .wave .dot.dsh { display: inline; }
-.rb .ic.cog { fill: currentColor; stroke: none; fill-rule: evenodd; }
-.rb .ic .fl { fill: currentColor; stroke: none; } .rb .ic .dim { opacity: .45; }
-.mmusic .km { font-family: "Niradei", var(--font), "Noto Sans Khmer", "Khmer OS", sans-serif; line-height: 1.35; }
-.mmusic .wave .dot { fill: var(--accent); animation: rise 3.4s ease-out infinite; transform-box: fill-box; }
-@keyframes rise { from { transform: translateY(0); opacity: .9; } to { transform: translateY(-16px); opacity: 0; } }
-@keyframes wv { from { transform: translateX(-3%); } to { transform: translateX(3%); } }
-.mmusic .row { display: flex; gap: 9px; align-items: center; }
-.cover { width: 40px; height: 40px; border-radius: 11px; flex: none; background: linear-gradient(135deg, var(--accent), #5b6cff 70%, #f06292); }
-.mmusic .ttl { font-size: .86rem; font-weight: 600; line-height: 1.15; }
-.mmusic .art { font-size: .68rem; color: var(--dim); }
-.prog { height: 4px; border-radius: 4px; background: var(--chip); margin: 6px 0 6px; position: relative; }
-.prog i { position: absolute; left: 0; top: 0; bottom: 0; width: 38%; border-radius: 4px; background: var(--text); opacity: .85; }
-.ctrl { display: flex; justify-content: center; align-items: center; gap: 12px; }
-.gb { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; color: var(--text); background: var(--glass-strong); border: 1px solid var(--rim); box-shadow: 0 3px 6px var(--shadow); }
-.gb.big { width: 32px; height: 32px; }
-.gb .ic { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+/* the app preview: see "hero illustration (5.0 Immersive UI)" at the end */
 
 /* ---------- sections ---------- */
 section { padding: 52px 0; }
@@ -476,56 +358,114 @@ html.lang-km h1, html.lang-km h2, html.lang-km h3 { line-height: 1.45; }
 .il .gb { fill: var(--glass-strong); stroke: var(--rim); stroke-width: .8; }
 .il .gr { fill: var(--chip); } .il .gl { fill: var(--text); opacity: .8; }
 
-/* Google's turn banner (3.0.1 design): the top piece and the "Then" tab under it are one shape: a straight left edge,
-   square corners where they join, the tab only as wide as its text, a little darker, joined edge to edge */
-.turnwrap { position: absolute; left: 8px; top: 8px; max-width: 64%; display: flex; flex-direction: column; align-items: flex-start; z-index: 2; transition: opacity .4s; }
-.turnwrap .mbanner, .turnwrap .mthen { position: relative; left: auto; top: auto; max-width: none; }
-.turnwrap .mbanner { z-index: 1; border-radius: 14px 14px 14px 0; padding: 10px 14px 10px 10px; gap: 10px; box-shadow: inset 0 1px 0 var(--lit); }
-.turnwrap .mbanner .turn { width: 34px; height: 34px; background: none; border-radius: 0; }
-.turnwrap .mbanner .turn .ic { width: 30px; height: 30px; stroke-width: 3.2; stroke-linecap: butt; }
-.turnwrap .mbanner .turn .fl { fill: currentColor; stroke: none; }
-.turnwrap .mbanner b { font-size: 1.15rem; }
-.turnwrap .mthen { margin-top: -1px; padding: 5px 12px 5px 10px; border-radius: 0 0 10px 10px; --r: 0 0 10px 10px; border-top: 0; gap: 5px; font-size: .66rem; font-weight: 600;
-  background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)); }
-:root[data-theme="light"] .turnwrap .mthen { background-image: linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.08)); }
-.turnwrap .mthen::after { display: none; }
-@media (max-width: 560px) { .turnwrap { max-width: 70%; } .turnwrap .mthen { padding: 3px 8px; } .turnwrap .mbanner { padding: 6px; } }
-
-/* weather scenes (s-rain, s-sun): the clock card gets a sky that fades at the glass edge; rain also falls faintly over the whole screen
-   and drops sit and run on the clock card's glass, like the app's weather animation */
-.mclock > * { position: relative; z-index: 1; }
-.mclock > .wsky { position: absolute; inset: 0; z-index: 0; border-radius: inherit; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity .6s;
+/* ---------- hero illustration (5.0 Immersive UI, Horizon layout on the full car screen) ----------
+   The live map fills the screen; dock, turn banner, map button pill, the right column (clock, music, For you / Ahead),
+   speed bubble and trip bar float over it as glass. Sizes use container units so it scales with the column. States (site.js):
+   s-drive (route, banner, trip bar, Ahead), s-free (no route, For you), plus "rain" for the weather scene. */
+.carscreen { padding: 10px; border-radius: 26px; --r: 26px; }
+.screen.hz { position: relative; width: 100%; aspect-ratio: 1.6 / 1; border-radius: 18px; overflow: hidden; container-type: inline-size; background: var(--map-bg); --e: 1.6cqw; --gc: var(--glass-strong); }
+.hz .glass { border-radius: 2.6cqw; --r: 2.6cqw; }
+.hz svg { display: block; }
+.hz svg path, .hz svg circle, .hz svg rect { vector-effect: non-scaling-stroke; }
+.hz .f { fill: currentColor; stroke: none; } .hz .f.dim { opacity: .45; } .hz .cog { fill-rule: evenodd; }
+.hzmap { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hzmap .land { fill: var(--map-bg); } .hzmap .water { fill: var(--map-water, rgba(80, 140, 200, .22)); }
+.hzmap .park { fill: rgba(60, 170, 110, .22); } .hzmap .bld rect { fill: var(--map-bld, rgba(120, 140, 170, .22)); }
+.hzmap .street { stroke: var(--map-line); stroke-width: 1.5cqw; fill: none; stroke-linecap: round; } .hzmap .street.thin { stroke-width: .8cqw; }
+.hzmap .route { stroke: #4b8df8; stroke-width: 1.4cqw; fill: none; stroke-linecap: round; stroke-linejoin: round; } .hzmap .route.slow { stroke: #f5a623; }
+.hzmap .pin { fill: #ea4335; stroke: #fff; stroke-width: 1.2; } .hzmap .hole { fill: #fff; }
+.hzmap .car { fill: #fff; stroke: #2f7bff; stroke-width: 2.4; stroke-linejoin: round; } .hzmap .halo { fill: rgba(47, 123, 255, .22); }
+.hzmap .routeg { transition: opacity .5s; }
+.hzdock { position: absolute; left: var(--e); top: var(--e); bottom: var(--e); width: 7.4cqw; border-radius: 3.7cqw !important; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: .9cqw 0; }
+.hzdock .apps { display: flex; flex-direction: column; gap: 1.4cqw; }
+.hzdock .ap { width: 5.2cqw; height: 5.2cqw; border-radius: 50%; display: block; } .hzdock .ap svg { width: 100%; height: 100%; }
+.hb { width: 5.2cqw; height: 5.2cqw; border-radius: 50%; background: var(--chip); display: grid; place-items: center; color: var(--text); }
+.hb svg { width: 52%; height: 52%; }
+.hzturn { position: absolute; left: 10.6cqw; top: var(--e); width: 30cqw; display: flex; flex-direction: column; align-items: flex-start; transition: opacity .45s, transform .45s; }
+.hzturn .hd { align-self: stretch; display: flex; gap: 1.4cqw; align-items: center; padding: 1.4cqw 1.8cqw; border-radius: 2.6cqw 2.6cqw 2.6cqw 0; --r: 2.6cqw 2.6cqw 2.6cqw 0; }
+.hzturn .hd svg { width: 5.4cqw; height: 5.4cqw; flex: none; fill: none; stroke: currentColor; stroke-width: .75cqw; stroke-linecap: butt; stroke-linejoin: round; }
+.hzturn b { display: block; font-size: 3.3cqw; line-height: 1; font-weight: 700; } .hzturn .hd span { display: block; font-size: 1.7cqw; margin-top: .4cqw; }
+.hzturn .th { margin-top: -1px; display: flex; gap: .7cqw; align-items: center; padding: .7cqw 1.6cqw; border-radius: 0 0 1.8cqw 1.8cqw; --r: 0 0 1.8cqw 1.8cqw; font-size: 1.6cqw; font-weight: 600; background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)); }
+.hzturn .th svg { width: 2cqw; height: 2cqw; fill: none; stroke: currentColor; stroke-width: .5cqw; }
+.hzturn .th::after { display: none; }
+.hzpill { position: absolute; right: 33.2cqw; top: var(--e); width: 6.2cqw; border-radius: 3.1cqw !important; display: flex; flex-direction: column; align-items: center; gap: .5cqw; padding: .8cqw 0; color: var(--text); }
+.hzpill i { width: 4.6cqw; height: 4.6cqw; display: grid; place-items: center; }
+.hzpill svg { width: 2.6cqw; height: 2.6cqw; fill: none; stroke: currentColor; stroke-width: .42cqw; stroke-linecap: round; stroke-linejoin: round; }
+.hzcol { position: absolute; right: var(--e); top: var(--e); bottom: var(--e); width: 29.4cqw; display: flex; flex-direction: column; gap: var(--e); }
+.hzclock { position: relative; flex: 0 0 30%; padding: 1.6cqw 1.8cqw; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.hzclock > * { position: relative; z-index: 1; }
+.hzclock .tp { display: flex; justify-content: space-between; align-items: center; } .hzclock .tiny { font-size: 1.15cqw; }
+.hzclock .gauge { width: 3cqw; height: 3cqw; fill: var(--text); } .hzclock .gauge .ring, .hzclock .gauge .wifi { fill: none; stroke: var(--text); stroke-width: 3; stroke-linecap: round; }
+.hzclock .mid { display: flex; justify-content: space-between; align-items: center; }
+.hzclock .t { font-size: 6.4cqw; font-weight: 200; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.hzclock .wx { text-align: right; } .hzclock .wx b { display: block; font-size: 3cqw; font-weight: 300; line-height: 1; } .hzclock .wx small { font-size: 1.25cqw; color: var(--dim); }
+.hzclock .w-r { display: none; } .hz.rain .hzclock .w-r { display: inline; } .hz.rain .hzclock .w-s { display: none; }
+.hzclock .hrs { display: flex; justify-content: space-between; border-top: 1px solid var(--rim); padding-top: .7cqw; }
+.hzclock .hrs span { font-size: 1.1cqw; color: var(--dim); text-align: center; line-height: 1.35; } .hzclock .hrs b { display: block; font-size: 1.3cqw; color: var(--text); font-weight: 500; }
+.hzclock > .sky { position: absolute; inset: 0; z-index: 0; border-radius: inherit; pointer-events: none; transition: background .6s;
+  background: linear-gradient(180deg, rgba(96, 164, 236, .4), rgba(96, 164, 236, .06) 80%);
   -webkit-mask: radial-gradient(130% 130% at 50% 50%, #000 62%, transparent 74%); mask: radial-gradient(130% 130% at 50% 50%, #000 62%, transparent 74%); }
-.s-rain .mclock > .wsky, .s-sun .mclock > .wsky { opacity: 1; }
-.wsky i, .wsky .drops { position: absolute; display: block; transition: opacity .6s; }
-.s-sun .wsky { background: linear-gradient(180deg, rgba(96, 164, 236, .42), rgba(96, 164, 236, .08) 75%); }
-.s-rain .wsky { background: linear-gradient(180deg, rgba(92, 106, 126, .62), rgba(92, 106, 126, .2) 80%); }
-:root[data-theme="light"] .s-rain .wsky { background: linear-gradient(180deg, rgba(120, 134, 154, .55), rgba(120, 134, 154, .15) 80%); }
-.wsky .sun { right: 30%; top: 16%; width: 30px; height: 30px; border-radius: 50%; opacity: 0;
-  background: radial-gradient(circle, #fff6d8 0 40%, #ffd36a 46%, rgba(255, 200, 90, .45) 58%, rgba(255, 200, 90, 0) 72%); transform: scale(2.2); animation: sunb 4s ease-in-out infinite alternate; }
-@keyframes sunb { to { transform: scale(2.45); } }
-.s-sun .wsky .sun { opacity: 1; }
-.wsky .cl { border-radius: 50%; background: rgba(235, 240, 246, .55); filter: blur(7px); opacity: 0; animation: drift 14s linear infinite alternate; }
-.wsky .c1 { width: 46%; height: 34%; left: -6%; top: -8%; } .wsky .c2 { width: 52%; height: 38%; left: 34%; top: -14%; animation-delay: -5s; }
-.wsky .c3 { width: 40%; height: 30%; left: 70%; top: 2%; animation-delay: -9s; }
+.hz.rain .hzclock > .sky { background: linear-gradient(180deg, rgba(92, 106, 126, .6), rgba(92, 106, 126, .16) 80%); }
+.hzclock .sky i { position: absolute; display: block; transition: opacity .6s; }
+.hzclock .sun { left: 50%; top: 10%; width: 3.4cqw; height: 3.4cqw; border-radius: 50%; background: radial-gradient(circle at 38% 34%, #fff8d6, #ffd36b 60%, #f2b13a); box-shadow: 0 0 2.4cqw 1cqw rgba(255, 210, 110, .45); }
+.hz.rain .hzclock .sun { opacity: 0; }
+.hzclock .cl { border-radius: 50%; background: rgba(150, 162, 178, .6); filter: blur(1cqw); opacity: 0; animation: drift 14s linear infinite alternate; }
+.hzclock .c1 { width: 46%; height: 40%; left: -6%; top: -10%; } .hzclock .c2 { width: 52%; height: 44%; left: 40%; top: -16%; animation-delay: -5s; }
+.hz.rain .hzclock .cl { opacity: 1; }
 @keyframes drift { to { translate: 14px 0; } }
-.s-rain .wsky .cl { opacity: 1; background: rgba(150, 162, 178, .6); }
-.s-sun .wsky .c2 { opacity: .55; width: 34%; height: 22%; left: 8%; top: 6%; }
-.wsky .drops { inset: 0; opacity: 0; } .s-rain .wsky .drops { opacity: 1; }
-.wsky .dp { width: var(--s); height: calc(var(--s) * 1.15); border-radius: 50% 50% 48% 48% / 56% 56% 44% 44%;
-  background: radial-gradient(circle at 50% 70%, rgba(255, 255, 255, .55) 0 22%, rgba(255, 255, 255, 0) 38%), radial-gradient(circle at 50% 30%, rgba(0, 0, 0, .28) 0 30%, rgba(0, 0, 0, 0) 55%);
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .35); }
-.wsky .dp.run { animation: run 2.6s cubic-bezier(.5, 0, .9, .6) infinite; }
-@keyframes run { 0%, 35% { translate: 0 0; } 100% { translate: 0 60px; opacity: 0; } }
-.rain { position: absolute; inset: 0; border-radius: 16px; overflow: hidden; pointer-events: none; z-index: 15; opacity: 0; transition: opacity .6s; }
-.rain i { position: absolute; left: 0; right: 0; top: -120px; bottom: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='120'%3E%3Cg stroke='white' stroke-linecap='round' fill='none'%3E%3Cpath d='M12 8l-2 16' stroke-width='1' stroke-opacity='.8'/%3E%3Cpath d='M48 40l-2.4 20' stroke-width='1.1' stroke-opacity='.65'/%3E%3Cpath d='M78 14l-1.6 12' stroke-width='.9' stroke-opacity='.7'/%3E%3Cpath d='M30 76l-2 17' stroke-width='1' stroke-opacity='.75'/%3E%3Cpath d='M66 88l-1.8 14' stroke-width='.9' stroke-opacity='.6'/%3E%3Cpath d='M86 60l-2 15' stroke-width='1' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E") repeat; animation: fall .55s linear infinite; }
-.rain i + i { background-size: 130px 170px; top: -170px; opacity: .6; animation-duration: .8s; background-position: 40px 20px; }
-@keyframes fall { to { transform: translateY(120px); } }
-.rain i + i { animation-name: fall2; } @keyframes fall2 { to { transform: translateY(170px); } }
-.s-rain .rain { opacity: .28; }
-:root[data-theme="light"] .rain i { filter: invert(.55); } :root[data-theme="light"] .s-rain .rain { opacity: .35; }
-.mclock .wx .w-r, .mclock .wx .w-s, .s-rain .mclock .wx .w-c, .s-sun .mclock .wx .w-c { display: none; }
-.s-rain .mclock .wx .w-r, .s-sun .mclock .wx .w-s { display: inline; }
-.s-rain .mbanner, .s-rain .mthen, .s-rain .trip, .s-sun .mbanner, .s-sun .mthen, .s-sun .trip,
-.s-rain .routeg, .s-rain .stop, .s-rain .pinred, .s-sun .routeg, .s-sun .stop, .s-sun .pinred { opacity: 0; }
-.turnwrap .mthen .ic { width: 15px; height: 15px; stroke-width: 3; stroke-linecap: butt; } .turnwrap .mthen .fl { fill: currentColor; stroke: none; }
+.hzmusic { flex: 0 0 33%; padding: 1.6cqw 1.8cqw; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.hzmusic .row { display: flex; gap: 1.3cqw; align-items: center; }
+.hzmusic .cover { width: 6.4cqw; height: 6.4cqw; border-radius: 1.6cqw; flex: none; background: linear-gradient(135deg, var(--accent), #e85d75 55%, #5b6cff); }
+.hzmusic .ttl { font-size: 1.9cqw; font-weight: 600; line-height: 1.3; } .hzmusic .art { font-size: 1.4cqw; color: var(--dim); white-space: nowrap; } .hzmusic .art b { color: var(--accent); font-weight: 500; }
+.hz .km { font-family: "Niradei", var(--font), "Noto Sans Khmer", "Khmer OS", sans-serif; }
+.hzmusic .rib { width: 100%; height: 4.4cqw; overflow: visible; animation: wv 5s ease-in-out infinite alternate; }
+.hzmusic .rib path { fill: none; stroke-linecap: round; stroke-width: 1.6; }
+.rib .r0 { stroke: color-mix(in srgb, var(--accent) 60%, #fff); } .rib .r1 { stroke: var(--accent); opacity: .9; }
+.rib .r2 { stroke: color-mix(in srgb, var(--accent) 75%, #000); opacity: .8; } .rib .r3 { stroke: color-mix(in srgb, var(--accent) 55%, #000); opacity: .7; }
+.rib .sp { fill: var(--text); animation: rise 3.4s ease-out infinite; transform-box: fill-box; }
+@keyframes rise { from { transform: translateY(0); opacity: .9; } to { transform: translateY(-12px); opacity: 0; } }
+@keyframes wv { from { transform: translateX(-3%); } to { transform: translateX(3%); } }
+.hzmusic .ctl { display: flex; justify-content: center; align-items: center; gap: 1.8cqw; }
+.hzmusic .gb { width: 4.4cqw; height: 4.4cqw; border-radius: 50%; display: grid; place-items: center; color: var(--text); background: var(--chip); }
+.hzmusic .gb svg { width: 50%; height: 50%; }
+.hzmusic .pl { width: 5.8cqw; height: 5.8cqw; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--on-accent); box-shadow: 0 1.2cqw 2cqw -1.2cqw rgba(var(--accent-rgb), .9); }
+.hzmusic .pl svg { width: 46%; height: 46%; fill: none; stroke: currentColor; stroke-width: .55cqw; stroke-linecap: round; }
+.hzmusic .prog { height: .45cqw; border-radius: 1cqw; background: var(--chip); position: relative; }
+.hzmusic .prog i { position: absolute; left: 0; top: 0; bottom: 0; width: 38%; border-radius: inherit; background: var(--accent); }
+.hzfor { flex: 1; padding: 1.3cqw 1.6cqw; position: relative; overflow: hidden; }
+.hzfor .tiny { font-size: 1.15cqw; }
+.hzfor .v { position: absolute; inset: 1.1cqw 1.6cqw; transition: opacity .45s; }
+.hzfor .free { opacity: 0; } .hz.s-free .hzfor .free { opacity: 1; } .hz.s-free .hzfor .drive { opacity: 0; }
+.hzfor .rw { display: flex; gap: 1.1cqw; align-items: center; margin-top: .9cqw; }
+.hzfor .dc { width: 3.9cqw; height: 3.9cqw; border-radius: 50%; display: grid; place-items: center; color: #fff; flex: none; }
+.hzfor .dc svg { width: 52%; height: 52%; fill: none; stroke: currentColor; stroke-width: .4cqw; stroke-linejoin: round; }
+.hzfor .dc.g { background: #2ec26b; } .hzfor .dc.r { background: #ea4335; } .hzfor .dc.b { background: #3b82f6; } .hzfor .dc.p { background: #8b5cf6; }
+.hzfor .rw b { display: block; font-size: 1.55cqw; font-weight: 600; line-height: 1.2; } .hzfor .rw small { display: block; font-size: 1.25cqw; color: var(--dim); }
+.hzfor .rw em { margin-left: auto; font-style: normal; font-size: 1.45cqw; font-weight: 600; } .hzfor .rw em.ok { color: #2fbf71; }
+.hzspeed { position: absolute; left: 10.6cqw; bottom: 12.6cqw; width: 7.4cqw; height: 7.4cqw; border-radius: 50% !important; display: grid; place-content: center; text-align: center; font-size: 2.8cqw; line-height: 1; font-weight: 600; transition: opacity .45s; }
+.hzspeed small { display: block; font-size: 1.1cqw; color: var(--dim); font-weight: 400; }
+.hzspeed .lim { position: absolute; right: -1.2cqw; top: -1.2cqw; width: 3.4cqw; height: 3.4cqw; border-radius: 50%; background: #fff; border: .45cqw solid #e53935; color: #111; font-size: 1.35cqw; font-weight: 700; display: grid; place-items: center; }
+.hztrip { position: absolute; left: 10.6cqw; right: 33.2cqw; bottom: var(--e); height: 9.4cqw; display: flex; align-items: center; gap: 1.6cqw; padding: 0 1.4cqw 0 2.2cqw; transition: opacity .45s, transform .45s; }
+.hztrip > b { font-size: 3cqw; font-weight: 600; color: #2fbf71; white-space: nowrap; } .hztrip > small { font-size: 1.5cqw; color: var(--dim); white-space: nowrap; }
+.hztrip .ln { flex: 1; height: 2.8cqw; position: relative; color: var(--text); }
+.hztrip .ln::before { content: ""; position: absolute; left: 0; right: 0; top: 1.2cqw; height: .45cqw; border-radius: 1cqw; background: var(--chip); }
+.hztrip .ln::after { content: ""; position: absolute; left: 0; width: 42%; top: 1.2cqw; height: .45cqw; border-radius: 1cqw; background: #4b8df8; }
+.hztrip .cr { position: absolute; left: 42%; top: .75cqw; width: 1.8cqw; height: 1.8cqw; margin-left: -.9cqw; border-radius: 50%; background: #fff; border: .4cqw solid #4b8df8; z-index: 1; }
+.hztrip .stp { position: absolute; left: 68%; top: .85cqw; width: 1.5cqw; height: 1.5cqw; border-radius: 50%; background: #2ec26b; z-index: 1; }
+.hztrip .fl { position: absolute; right: -.3cqw; top: 0; width: 2cqw; height: 2.6cqw; }
+.hztrip .x { width: 4.6cqw; height: 4.6cqw; border-radius: 50%; background: var(--chip); display: grid; place-items: center; flex: none; }
+.hztrip .x svg { width: 42%; height: 42%; fill: none; stroke: currentColor; stroke-width: .45cqw; stroke-linecap: round; }
+/* the route's blue caught in the glass edge where the line runs under the trip bar (5.0: glass refracts the map's bright colours) */
+.hztrip .glow { position: absolute; left: calc(331 / 800 * 100cqw - 10.6cqw - 4cqw); width: 8cqw; top: -1px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, transparent, #79aaff, transparent); pointer-events: none; }
+.hztrip .glow::after { display: none; }
+.hz.s-free .hzturn { opacity: 0; transform: translateY(-1.5cqw); } .hz.s-free .hztrip { opacity: 0; transform: translateY(1.5cqw); }
+.hz.s-free .hzspeed { opacity: 0; } .hz.s-free .routeg { opacity: 0; }
+.hz .rain { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 15; opacity: 0; transition: opacity .6s; }
+.hz .rain i { position: absolute; left: 0; right: 0; top: -120px; bottom: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='120'%3E%3Cg stroke='white' stroke-linecap='round' fill='none'%3E%3Cpath d='M12 8l-2 16' stroke-width='1' stroke-opacity='.8'/%3E%3Cpath d='M48 40l-2.4 20' stroke-width='1.1' stroke-opacity='.65'/%3E%3Cpath d='M78 14l-1.6 12' stroke-width='.9' stroke-opacity='.7'/%3E%3Cpath d='M30 76l-2 17' stroke-width='1' stroke-opacity='.75'/%3E%3Cpath d='M66 88l-1.8 14' stroke-width='.9' stroke-opacity='.6'/%3E%3Cpath d='M86 60l-2 15' stroke-width='1' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E") repeat; animation: fall .55s linear infinite; }
+.hz .rain i + i { background-size: 130px 170px; top: -170px; opacity: .6; animation: fall2 .8s linear infinite; background-position: 40px 20px; }
+@keyframes fall { to { transform: translateY(120px); } } @keyframes fall2 { to { transform: translateY(170px); } }
+.hz.rain .rain { opacity: .26; }
+:root[data-theme="light"] .hz .rain i { filter: invert(.55); } :root[data-theme="light"] .hz.rain .rain { opacity: .32; }
+:root[data-theme="light"] .hzturn .th { background-image: linear-gradient(rgba(0,0,0,.07), rgba(0,0,0,.07)); }
+:root[data-theme="light"] .hzmap .park { fill: rgba(60, 170, 110, .28); }
+@media (prefers-reduced-motion: reduce) { .hz .rain i, .hzmusic .rib, .rib .sp, .hzclock .cl { animation: none; } }
